@@ -1,0 +1,214 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: WPFront Notification Bar\n"
+"POT-Creation-Date: 2013-12-09 21:03-0700\n"
+"PO-Revision-Date: 2013-12-09 21:04-0700\n"
+"Last-Translator: \n"
+"Language-Team: WPFront <contact@wpfront.com>\n"
+"Language: en\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.6.1\n"
+"X-Poedit-Basepath: .\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-KeywordsList: __;_e\n"
+"X-Poedit-SearchPath-0: ..\n"
+
+#: ../classes/class-wpfront-notification-bar-options.php:41
+msgid "Enabled"
+msgstr "Enabled"
+
+#: ../classes/class-wpfront-notification-bar-options.php:42
+msgid "Position"
+msgstr "Position"
+
+#: ../classes/class-wpfront-notification-bar-options.php:43
+msgid "Bar Height"
+msgstr "Bar Height"
+
+#: ../classes/class-wpfront-notification-bar-options.php:44
+msgid "Message Text"
+msgstr "Message Text"
+
+#: ../classes/class-wpfront-notification-bar-options.php:45
+msgid "Display After"
+msgstr "Display After"
+
+#: ../classes/class-wpfront-notification-bar-options.php:46
+msgid "Animation Duration"
+msgstr "Animation Duration"
+
+#: ../classes/class-wpfront-notification-bar-options.php:47
+msgid "Display Close Button"
+msgstr "Display Close Button"
+
+#: ../classes/class-wpfront-notification-bar-options.php:48
+msgid "Auto Close After"
+msgstr "Auto Close After"
+
+#: ../classes/class-wpfront-notification-bar-options.php:49
+msgid "Display Button"
+msgstr "Display Button"
+
+#: ../classes/class-wpfront-notification-bar-options.php:50
+msgid "Button Text"
+msgstr "Button Text"
+
+#: ../classes/class-wpfront-notification-bar-options.php:51
+msgid "Button Action"
+msgstr "Button Action"
+
+#: ../classes/class-wpfront-notification-bar-options.php:52
+msgid "Open URL:"
+msgstr "Open URL:"
+
+#: ../classes/class-wpfront-notification-bar-options.php:53
+msgid "Open URL in new tab/window"
+msgstr "Open URL in new tab/window"
+
+#: ../classes/class-wpfront-notification-bar-options.php:54
+msgid "Execute JavaScript"
+msgstr "Execute JavaScript"
+
+#: ../classes/class-wpfront-notification-bar-options.php:55
+msgid "Close Bar on Button Click"
+msgstr "Close Bar on Button Click"
+
+#: ../classes/class-wpfront-notification-bar-options.php:56
+msgid "Display Shadow"
+msgstr "Display Shadow"
+
+#: ../classes/class-wpfront-notification-bar-options.php:57
+msgid "Fixed at Position"
+msgstr "Fixed at Position"
+
+#: ../classes/class-wpfront-notification-bar-options.php:58
+msgid "Message Text Color"
+msgstr "Message Text Color"
+
+#: ../classes/class-wpfront-notification-bar-options.php:59
+#: ../classes/class-wpfront-notification-bar-options.php:61
+msgid "From Color"
+msgstr "From Color"
+
+#: ../classes/class-wpfront-notification-bar-options.php:60
+#: ../classes/class-wpfront-notification-bar-options.php:62
+msgid "To Color"
+msgstr "To Color"
+
+#: ../classes/class-wpfront-notification-bar-options.php:63
+msgid "Button Text Color"
+msgstr "Button Text Color"
+
+#: ../classes/class-wpfront-notification-bar.php:100
+msgid "WPFront Notification Bar"
+msgstr "WPFront Notification Bar"
+
+#: ../classes/class-wpfront-notification-bar.php:100
+msgid "Notification Bar"
+msgstr "Notification Bar"
+
+#: ../classes/class-wpfront-notification-bar.php:132
+msgid "You do not have sufficient permissions to access this page."
+msgstr "You do not have sufficient permissions to access this page."
+
+#: ../classes/class-wpfront-notification-bar.php:142
+msgid "Settings"
+msgstr "Settings"
+
+#: ../classes/class-wpfront-notification-bar.php:198
+msgid "Save Changes"
+msgstr "Save Changes"
+
+#: ../templates/options-template.php:34
+msgid "WPFront Notification Bar Settings"
+msgstr "WPFront Notification Bar Settings"
+
+#: ../templates/options-template.php:44
+msgid ""
+"If you have a caching plugin, clear the cache for the new settings to take "
+"effect."
+msgstr ""
+"If you have a caching plugin, clear the cache for the new settings to take "
+"effect."
+
+#: ../templates/options-template.php:49
+msgid "Display"
+msgstr "Display"
+
+#: ../templates/options-template.php:65
+msgid "Top"
+msgstr "Top"
+
+#: ../templates/options-template.php:66
+msgid "Bottom"
+msgstr "Bottom"
+
+#: ../templates/options-template.php:75
+msgid "[Sticky Bar, bar will stay at position regardless of scrolling.]"
+msgstr "[Sticky Bar, bar will stay at position regardless of scrolling.]"
+
+#: ../templates/options-template.php:83
+msgid "px"
+msgstr "px"
+
+#: ../templates/options-template.php:83
+msgid "Set 0px to auto fit contents."
+msgstr "Set 0px to auto fit contents."
+
+#: ../templates/options-template.php:91 ../templates/options-template.php:99
+#: ../templates/options-template.php:115
+msgid "second(s)"
+msgstr "second(s)"
+
+#: ../templates/options-template.php:91
+msgid "Set 0 second(s) to display immediately."
+msgstr "Set 0 second(s) to display immediately."
+
+#: ../templates/options-template.php:99
+msgid "Set 0 second(s) for no animation."
+msgstr "Set 0 second(s) for no animation."
+
+#: ../templates/options-template.php:107
+msgid "[Displays a close button at the top right corner of the bar.]"
+msgstr "[Displays a close button at the top right corner of the bar.]"
+
+#: ../templates/options-template.php:115
+msgid "Set 0 second(s) to disable auto close."
+msgstr "Set 0 second(s) to disable auto close."
+
+#: ../templates/options-template.php:128
+msgid "Content"
+msgstr "Content"
+
+#: ../templates/options-template.php:137
+msgid "[HTML tags are allowed. e.g. Add <br /> for break.]"
+msgstr "[HTML tags are allowed. e.g. Add <br /> for break.]"
+
+#: ../templates/options-template.php:145
+msgid "[Displays a button next to the message.]"
+msgstr "[Displays a button next to the message.]"
+
+#: ../templates/options-template.php:190
+msgid "Color"
+msgstr "Color"
+
+#: ../templates/options-template.php:194
+msgid "Bar Color"
+msgstr "Bar Color"
+
+#: ../templates/options-template.php:203 ../templates/options-template.php:226
+msgid "[Select two different colors to create a gradient.]"
+msgstr "[Select two different colors to create a gradient.]"
+
+#: ../templates/options-template.php:217
+msgid "Button Color"
+msgstr "Button Color"
+
+#~ msgid "Animate Display"
+#~ msgstr "Animate Display"
+
+#~ msgid "Animate Display Delay"
+#~ msgstr "Animate Display Delay"
