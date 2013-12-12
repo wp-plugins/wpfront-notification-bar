@@ -46,19 +46,21 @@ No one has asked anything yet.
 2. Bar on bottom.
 3. Settings page.
 
+
 == Changelog ==
 
-== 1.0.1 ==
+= 1.0.1 =
 * A couple of bug fixes.
 
 = 1.0 =
-* Initial release.
+* Initial release
 
 == Upgrade Notice ==
 
-== 1.0.1 ==
-* Fixed a bug related to CSS conflicting with some themes.
+= 1.0.1 =
+* Fixed an issue with CSS conflicting with some themes
 
 = 1.0 =
-* Initial release.
+* Initial release
+
 
