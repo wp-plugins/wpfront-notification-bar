@@ -24,6 +24,10 @@ Want to display a notification about a promotion or a news? WPFront Notification
 * Set the number of **seconds before auto close**.
 * **Colors** are fully **customizable**.
 
+Visit [WPFront Notification Bar Ideas](http://wpfront.com/notification-bar-plugin-ideas/) page for some useful functionalities.
+
+Visit [WPFront Notification Bar Settings](http://wpfront.com/notification-bar-plugin-settings/) page for detailed option descriptions.
+
 == Installation ==
 
 1. Click Plugins/Add New from the WordPress admin panel
