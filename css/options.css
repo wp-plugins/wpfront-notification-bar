@@ -1,0 +1,33 @@
+#icon-wpfront-notification-bar 
+{
+    background: url("../images/settings32x32.png") no-repeat scroll 0 0 rgba(0, 0, 0, 0);
+}
+
+#wpfront-notification-bar-options 
+{
+}
+
+#wpfront-notification-bar-options  input.seconds
+{
+    width: 30px;
+}
+
+#wpfront-notification-bar-options textArea 
+{
+    width: 70%;
+}
+
+#wpfront-notification-bar-options  input.URL
+{
+    width: 50%;
+}
+
+table.form-table span 
+{
+    vertical-align: middle;
+}
+
+table.form-table .color-selector 
+{
+    vertical-align: middle;
+}
