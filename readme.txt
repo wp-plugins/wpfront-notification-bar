@@ -1,10 +1,10 @@
 === WPFront Notification Bar ===
 Contributors: syammohanm
 Donate link: http://wpfront.com/donate/
-Tags: notification bar, wordpress notification bar, top bar, bottom bar, notification, bar, quick bar, fixed bar, sticky bar, message bar, message, floating bar, notice, sticky header, special offer, discount offer, offer, important, attention bar, highlight bar, popup bar, hellobar
+Tags: notification bar, wordpress notification bar, top bar, bottom bar, notification, bar, quick bar, fixed bar, sticky bar, message bar, message, floating bar, notice, sticky header, special offer, discount offer, offer, important, attention bar, highlight bar, popup bar, hellobar, heads up, heads up bar, headsup, headsupbar, popup, Toolbar
 Requires at least: 3.0
 Tested up to: 3.7.1
-Stable tag: 1.0
+Stable tag: 1.0.1
 License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -48,11 +48,17 @@ No one has asked anything yet.
 
 == Changelog ==
 
+== 1.0.1 ==
+* A couple of bug fixes.
+
 = 1.0 =
-* Initial release
+* Initial release.
 
 == Upgrade Notice ==
 
+== 1.0.1 ==
+* Fixed a bug related to CSS conflicting with some themes.
+
 = 1.0 =
-* Initial release
+* Initial release.
 

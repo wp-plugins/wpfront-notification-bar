@@ -22,8 +22,10 @@
         spacer.insertBefore(bar);
 
         var height = bar.height();
-        if (data.height > 0)
+        if (data.height > 0) {
             height = data.height;
+            bar.find("table, tbody, tr").css("height", "100%");
+        }
 
         bar.height(0).css({"display": "block", "position": (data.fixed_position ? "fixed" : "relative"), "visibility": "visible"});
 

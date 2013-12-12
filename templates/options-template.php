@@ -38,7 +38,7 @@
             <?php @settings_fields(WPFront_Notification_Bar::OPTIONS_GROUP_NAME); ?>
             <?php @do_settings_sections(WPFront_Notification_Bar::OPTIONSPAGE_SLUG); ?>
 
-            <?php if ($_GET['settings-updated'] == 'true' || $_GET['updated'] == 'true') { ?>
+            <?php if ((isset($_GET['settings-updated']) && $_GET['settings-updated'] == 'true') || (isset($_GET['updated']) && $_GET['updated'] == 'true')) { ?>
                 <div class="updated">
                     <p>
                         <strong><?php echo $this->__('If you have a caching plugin, clear the cache for the new settings to take effect.'); ?></strong>
