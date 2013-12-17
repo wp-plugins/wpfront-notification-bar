@@ -85,6 +85,14 @@
                 </tr>
                 <tr>
                     <th scope="row">
+                        <?php echo $this->options->position_offset_label(); ?>
+                    </th>
+                    <td>
+                        <input class="seconds" name="<?php echo $this->options->position_offset_name(); ?>" value="<?php echo $this->options->position_offset(); ?>" />&#160;<?php echo $this->__('px'); ?>&#160;<span class="description">[<?php echo $this->__('(Top bar only) If you find the bar overlapping, try increasing this value. (eg. WordPress 3.8 Twenty Fourteen theme, set 48px)'); ?>]</span>
+                    </td>
+                </tr>
+                <tr>
+                    <th scope="row">
                         <?php echo $this->options->display_after_label(); ?>
                     </th>
                     <td>
@@ -121,6 +129,22 @@
                     </th>
                     <td>
                         <input type="checkbox" name="<?php echo $this->options->display_shadow_name(); ?>" <?php echo $this->options->display_shadow() ? 'checked' : ''; ?> />
+                    </td>
+                </tr>
+                <tr>
+                    <th scope="row">
+                        <?php echo $this->options->display_open_button_label(); ?>
+                    </th>
+                    <td>
+                        <input type="checkbox" name="<?php echo $this->options->display_open_button_name(); ?>" <?php echo $this->options->display_open_button() ? 'checked' : ''; ?> />&#160;<span class="description">[<?php echo $this->__('A reopen button will be displayed after the bar is closed.'); ?>]</span>
+                    </td>
+                </tr>
+                <tr>
+                    <th scope="row">
+                        <?php echo $this->options->keep_closed_label(); ?>
+                    </th>
+                    <td>
+                        <input type="checkbox" name="<?php echo $this->options->keep_closed_name(); ?>" <?php echo $this->options->keep_closed() ? 'checked' : ''; ?> />&#160;<span class="description">[<?php echo $this->__('Once closed, bar will display closed on other pages.'); ?>]</span>
                     </td>
                 </tr>
             </table>
@@ -187,6 +211,63 @@
                 </tr>
             </table>
 
+            <h3><?php echo $this->__('Filter'); ?></h3>
+            <table class="form-table">
+                <tr>
+                    <th scope="row">
+                        <?php echo $this->options->display_pages_label(); ?>
+                    </th>
+                    <td>
+                        <label>
+                            <input type="radio" name="<?php echo $this->options->display_pages_name(); ?>" value="1" <?php echo $this->options->display_pages() == 1 ? 'checked' : ''; ?> />
+                            <span><?php echo $this->__('All pages.'); ?></span>
+                        </label>
+                        <br />
+                        <label>
+                            <input type="radio" name="<?php echo $this->options->display_pages_name(); ?>" value="2" <?php echo $this->options->display_pages() == 2 ? 'checked' : ''; ?> />
+                            <span><?php echo $this->__('Only in landing page.'); ?></span>&#160;<span class="description"><?php echo $this->__('[The first page they visit on your website.]'); ?></span>
+                        </label>
+                        <br />
+                        <label>
+                            <input type="radio" name="<?php echo $this->options->display_pages_name(); ?>" value="3" <?php echo $this->options->display_pages() == 3 ? 'checked' : ''; ?> />
+                            <span><?php echo $this->__('Include in following pages'); ?></span>
+                        </label>
+                        <div class="pages-selection">
+                            <input type="hidden" name="<?php echo $this->options->include_pages_name(); ?>" value="<?php echo $this->options->include_pages(); ?>" />
+                            <?php
+                            $objects = $this->get_filter_objects();
+                            foreach ($objects as $key => $value) {
+                                ?>
+                                <div class="page-div">
+                                    <input type="checkbox" value="<?php echo $key; ?>" <?php echo strpos($this->options->include_pages(), $key) === FALSE ? '' : 'checked'; ?> />
+                                    <span><?php echo $value; ?></span>
+                                </div>
+                                <?php
+                            }
+                            ?>
+                        </div>
+                        <label>
+                            <input type="radio" name="<?php echo $this->options->display_pages_name(); ?>" value="4" <?php echo $this->options->display_pages() == 4 ? 'checked' : ''; ?> />
+                            <span><?php echo $this->__('Exclude in following pages'); ?></span>
+                        </label>
+                        <div class="pages-selection">
+                            <input type="hidden" name="<?php echo $this->options->exclude_pages_name(); ?>" value="<?php echo $this->options->exclude_pages(); ?>" />
+                            <?php
+                            $objects = $this->get_filter_objects();
+                            foreach ($objects as $key => $value) {
+                                ?>
+                                <div class="page-div">
+                                    <input type="checkbox" value="<?php echo $key; ?>" <?php echo strpos($this->options->exclude_pages(), $key) === FALSE ? '' : 'checked'; ?> />
+                                    <span><?php echo $value; ?></span>
+                                </div>
+                                <?php
+                            }
+                            ?>
+                        </div>
+                    </td>
+                </tr>
+            </table>
+
             <h3><?php echo $this->__('Color'); ?></h3>
             <table class="form-table">
                 <tr>
@@ -235,9 +316,32 @@
                         <input type="hidden" name="<?php echo $this->options->button_text_color_name(); ?>" value="<?php echo $this->options->button_text_color(); ?>" />
                     </td>
                 </tr>
+                <tr>
+                    <th scope="row">
+                        <?php echo $this->options->open_button_color_label(); ?>
+                    </th>
+                    <td>
+                        <div class="color-selector" color="<?php echo $this->options->open_button_color(); ?>"></div>&#160;<span><?php echo $this->options->open_button_color(); ?></span>
+                        <input type="hidden" name="<?php echo $this->options->open_button_color_name(); ?>" value="<?php echo $this->options->open_button_color(); ?>" />
+                    </td>
+                </tr>
             </table>
 
             <?php @$this->submit_button(); ?>
+            
+            <a href="http://wpfront.com/notification-bar-plugin-ideas/" target="_blank"><?php echo $this->__('Plugin Ideas'); ?></a>
+            |
+            <a href="http://wpfront.com/notification-bar-plugin-settings/" target="_blank"><?php echo $this->__('Settings Description'); ?></a>
+            |
+            <a href="http://wpfront.com/notification-bar-plugin-faq/" target="_blank"><?php echo $this->__('Plugin FAQ'); ?></a>
+            |
+            <a href="http://wpfront.com/contact/" target="_blank"><?php echo $this->__('Feature Request'); ?></a>
+            |
+            <a href="http://wpfront.com/contact/" target="_blank"><?php echo $this->__('Report Bug'); ?></a>
+            |
+            <a href="http://wordpress.org/support/view/plugin-reviews/wpfront-notification-bar" target="_blank"><?php echo $this->__('Write Review'); ?></a>
+            |
+            <a href="mailto:syam@wpfront.com"><?php echo $this->__('Contact Me (syam@wpfront.com)'); ?></a>
         </form>
     </div>
 </div>
@@ -263,6 +367,15 @@
 
         $('#wpfront-notification-bar-options').find(".color-selector").each(function(i, e) {
             setColorPicker($(e));
+        });
+
+        $('#wpfront-notification-bar-options .pages-selection input[type="checkbox"]').change(function() {
+            var values = [];
+            var div = $(this).parent().parent();
+            div.find('input:checked').each(function(i, e) {
+                values.push($(e).val());
+            });
+            div.children(":first").val(values.join());
         });
     })(jQuery);
 </script>

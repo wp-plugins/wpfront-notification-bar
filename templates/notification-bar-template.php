@@ -60,6 +60,11 @@
 
         color: <?php echo $this->options->button_text_color(); ?>;
     }
+    
+    #wpfront-notification-bar-open-button
+    {
+        background-color: <?php echo $this->options->open_button_color(); ?>;
+    }
 </style>
 
 <?php if ($this->options->display_button() && $this->options->button_action() == 2) { ?>
@@ -74,28 +79,30 @@
     </script>
 <?php } ?>
 
-<div id="wpfront-notification-bar" class="wpfront-fixed <?php if ($this->options->display_shadow()) echo $this->options->position() == 1 ? 'wpfront-bottom-shadow' : 'wpfront-top-shadow'; ?>" style="display: none;">
-    <div></div>
-    <?php if ($this->options->close_button()) { ?>
-        <div class="wpfront-close">X</div>
-    <?php } ?>
-    <table border="0" cellspacing="0" cellpadding="0">
-        <tr>
-            <td>
-                <div class="wpfront-message">
-                    <?php echo $this->options->message(); ?>
-                </div>
-                <div>
-                    <?php if ($this->options->display_button()) { ?>
-                        <?php if ($this->options->button_action() == 1) { ?>
-                            <a class="wpfront-button" href="<?php echo $this->options->button_action_url(); ?>"  target="<?php echo $this->options->button_action_new_tab() ? '_blank' : '_self'; ?>"><?php echo $this->options->button_text(); ?></a>
+<div id="wpfront-notification-bar-spacer"  style="display: none;">
+    <div id="wpfront-notification-bar-open-button" class="<?php echo $this->options->position() == 1 ? 'top wpfront-bottom-shadow' : 'bottom wpfront-top-shadow'; ?>"></div>
+    <div id="wpfront-notification-bar" class="wpfront-fixed <?php if ($this->options->display_shadow()) echo $this->options->position() == 1 ? 'wpfront-bottom-shadow' : 'wpfront-top-shadow'; ?>">
+        <?php if ($this->options->close_button()) { ?>
+            <div class="wpfront-close">X</div>
+        <?php } ?>
+        <table border="0" cellspacing="0" cellpadding="0">
+            <tr>
+                <td>
+                    <div class="wpfront-message">
+                        <?php echo $this->options->message(); ?>
+                    </div>
+                    <div>
+                        <?php if ($this->options->display_button()) { ?>
+                            <?php if ($this->options->button_action() == 1) { ?>
+                                <a class="wpfront-button" href="<?php echo $this->options->button_action_url(); ?>"  target="<?php echo $this->options->button_action_new_tab() ? '_blank' : '_self'; ?>"><?php echo $this->options->button_text(); ?></a>
+                            <?php } ?>
+                            <?php if ($this->options->button_action() == 2) { ?>
+                                <a class="wpfront-button" onclick="javascript:wpfront_notification_bar_button_action_script();"><?php echo $this->options->button_text(); ?></a>
+                            <?php } ?>
                         <?php } ?>
-                        <?php if ($this->options->button_action() == 2) { ?>
-                            <a class="wpfront-button" onclick="javascript:wpfront_notification_bar_button_action_script();"><?php echo $this->options->button_text(); ?></a>
-                        <?php } ?>
-                    <?php } ?>
-                </div>
-            </td>
-        </tr>
-    </table>
+                    </div>
+                </td>
+            </tr>
+        </table>
+    </div>
 </div>

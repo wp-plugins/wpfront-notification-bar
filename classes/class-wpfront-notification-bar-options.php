@@ -61,6 +61,13 @@ if (!class_exists('WPFront_Notification_Bar_Options')) {
             $this->addOption('button_from_color', 'string', '#00b7ea', array($this, 'validate_color'))->__('From Color');
             $this->addOption('button_to_color', 'string', '#009ec3', array($this, 'validate_color'))->__('To Color');
             $this->addOption('button_text_color', 'string', '#ffffff', array($this, 'validate_color'))->__('Button Text Color');
+            $this->addOption('display_pages', 'int', '1', array($this, 'validate_display_pages'))->__('Display on Pages');
+            $this->addOption('include_pages', 'string', '');
+            $this->addOption('exclude_pages', 'string', '');
+            $this->addOption('display_open_button', 'bit', false)->__('Display Reopen Button');
+            $this->addOption('open_button_color', 'string', '#00b7ea')->__('Reopen Button Color');
+            $this->addOption('keep_closed', 'bit', FALSE)->__('Keep Closed');
+            $this->addOption('position_offset', 'int', 0)->__('Position Offset');
         }
 
         //validation function
@@ -83,6 +90,18 @@ if (!class_exists('WPFront_Notification_Bar_Options')) {
 
             if (strpos($arg, '#') != 0)
                 return '#ffffff';
+
+            return $arg;
+        }
+        
+        protected function validate_display_pages($arg) {
+            if ($arg < 1) {
+                return 1;
+            }
+
+            if ($arg > 4) {
+                return 4;
+            }
 
             return $arg;
         }

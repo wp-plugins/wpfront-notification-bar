@@ -35,10 +35,14 @@ if (!class_exists('WPFront_Notification_Bar')) {
     class WPFront_Notification_Bar {
 
         //Constants
+        const VERSION = '1.1';
         const OPTIONSPAGE_SLUG = 'wpfront-notification-bar';
         const OPTIONS_GROUP_NAME = 'wpfront-notification-bar-options-group';
         const OPTION_NAME = 'wpfront-notification-bar-options';
         const PLUGIN_SLUG = 'wpfront-notification-bar';
+        
+        //cookie names
+        const COOKIE_LANDINGPAGE = 'wpfront-notification-bar-landingpage';
 
         //Variables
         private $pluginURLRoot;
@@ -54,6 +58,8 @@ if (!class_exists('WPFront_Notification_Bar')) {
             $this->pluginURLRoot = plugins_url() . '/wpfront-notification-bar/';
             $this->pluginDIRRoot = dirname(__FILE__) . '/../';
 
+            add_action('init', array(&$this, 'init'));
+
             //register actions
             if (is_admin()) {
                 add_action('admin_init', array(&$this, 'admin_init'));
@@ -63,33 +69,41 @@ if (!class_exists('WPFront_Notification_Bar')) {
                 add_action('wp_enqueue_scripts', array(&$this, 'enqueue_styles'));
                 add_action('wp_enqueue_scripts', array(&$this, 'enqueue_scripts'));
             }
-            
+
             add_action('wp_footer', array(&$this, 'write_markup'));
             add_action('shutdown', array(&$this, 'write_markup'));
             add_action('plugins_loaded', array(&$this, 'plugins_loaded'));
         }
 
+        public function init() {
+            //for landing page tracking
+            if (!isset($_COOKIE[self::COOKIE_LANDINGPAGE])) {
+                setcookie(self::COOKIE_LANDINGPAGE, 1);
+            }
+        }
+
         //add scripts
         public function enqueue_scripts() {
-            if ($this->options->enabled() == FALSE)
+            if ($this->enabled() == FALSE)
                 return;
 
             $jsRoot = $this->pluginURLRoot . 'js/';
 
             wp_enqueue_script('jquery');
-            wp_enqueue_script('wpfront-notification-bar', $jsRoot . 'wpfront-notification-bar.js', array('jquery'));
+            wp_enqueue_script('jquery.cookie', $this->pluginURLRoot . 'jquery-plugins/jquery.cookie.js', array('jquery'), '1.4.0');
+            wp_enqueue_script('wpfront-notification-bar', $jsRoot . 'wpfront-notification-bar.js', array('jquery'), self::VERSION);
 
             $this->scriptLoaded = TRUE;
         }
-        
+
         //add styles
         public function enqueue_styles() {
-            if ($this->options->enabled() == FALSE)
+            if ($this->enabled() == FALSE)
                 return;
 
             $cssRoot = $this->pluginURLRoot . 'css/';
 
-            wp_enqueue_style('wpfront-notification-bar', $cssRoot . 'wpfront-notification-bar.css');
+            wp_enqueue_style('wpfront-notification-bar', $cssRoot . 'wpfront-notification-bar.css', array(), self::VERSION);
         }
 
         public function admin_init() {
@@ -109,21 +123,21 @@ if (!class_exists('WPFront_Notification_Bar')) {
             $this->enqueue_scripts();
 
             $jsRoot = $this->pluginURLRoot . 'jquery-plugins/colorpicker/js/';
-            wp_enqueue_script('jquery.eyecon.colorpicker', $jsRoot . 'colorpicker.js', array('jquery'));
+            wp_enqueue_script('jquery.eyecon.colorpicker', $jsRoot . 'colorpicker.js', array('jquery'), self::VERSION);
 
 //            $jsRoot = $this->pluginURLRoot . 'js/';
-//            wp_enqueue_script('wpfront-notification-bar-options', $jsRoot . 'options.js');
+//            wp_enqueue_script('wpfront-notification-bar-options', $jsRoot . 'options.js', array(), self::VERSION);
         }
-        
+
         //options page styles
         public function enqueue_options_styles() {
             $this->enqueue_styles();
-            
+
             $styleRoot = $this->pluginURLRoot . 'jquery-plugins/colorpicker/css/';
-            wp_enqueue_style('jquery.eyecon.colorpicker.colorpicker', $styleRoot . 'colorpicker.css');
+            wp_enqueue_style('jquery.eyecon.colorpicker.colorpicker', $styleRoot . 'colorpicker.css', array(), self::VERSION);
 
             $styleRoot = $this->pluginURLRoot . 'css/';
-            wp_enqueue_style('wpfront-notification-bar-options', $styleRoot . 'options.css');
+            wp_enqueue_style('wpfront-notification-bar-options', $styleRoot . 'options.css', array(), self::VERSION);
         }
 
         //creates options page
@@ -163,7 +177,7 @@ if (!class_exists('WPFront_Notification_Bar')) {
                 return;
             }
 
-            if ($this->options->enabled()) {
+            if ($this->enabled()) {
                 include($this->pluginDIRRoot . 'templates/notification-bar-template.php');
 
                 echo '<script type="text/javascript">';
@@ -178,6 +192,9 @@ if (!class_exists('WPFront_Notification_Bar')) {
                     'auto_close_after' => $this->options->auto_close_after(),
                     'display_after' => $this->options->display_after(),
                     'is_admin_bar_showing' => $this->is_admin_bar_showing(),
+                    'display_open_button' => $this->options->display_open_button(),
+                    'keep_closed' => $this->options->keep_closed(),
+                    'position_offset' => $this->options->position_offset(),
                 )) . ');';
                 echo '</script>';
             }
@@ -200,12 +217,94 @@ if (!class_exists('WPFront_Notification_Bar')) {
         }
 
         private function is_admin_bar_showing() {
-            if(function_exists('is_admin_bar_showing')) {
+            if (function_exists('is_admin_bar_showing')) {
                 return is_admin_bar_showing();
             }
-            
+
             return FALSE;
         }
+
+        private function get_filter_objects() {
+            $objects = array();
+
+            $objects['1.home'] = $this->__('[Page]') . ' ' . $this->__('Home');
+
+            $pages = get_pages();
+            foreach ($pages as $page) {
+                $objects['1.' . $page->ID] = $this->__('[Page]') . ' ' . $page->post_title;
+            }
+
+            $posts = get_posts();
+            foreach ($posts as $post) {
+                $objects['2.' . $post->ID] = $this->__('[Post]') . ' ' . $post->post_title;
+            }
+
+//            $categories = get_categories();
+//            foreach ($categories as $category) {
+//                $objects['3.' . $category->cat_ID] = $this->__('[Category]') . ' ' . $category->cat_name;
+//            }
+
+            return $objects;
+        }
+
+        private function filter_page() {
+            if (is_admin())
+                return TRUE;
+            
+            switch ($this->options->display_pages()) {
+                case 1:
+                    return TRUE;
+                case 2:
+                    return !isset($_COOKIE[self::COOKIE_LANDINGPAGE]);
+                case 3:
+                case 4:
+                    global $post;
+                    $ID = FALSE;
+                    $type = FALSE;
+                    if (is_home()) {
+                        $ID = 'home';
+                        $type = 1;
+                    } elseif (is_singular()) {
+                        $post_type = get_post_type();
+                        if ($post_type == 'page') {
+                            $ID = $post->ID;
+                            $type = 1;
+                        } elseif ($post_type == 'post') {
+                            $ID = $post->ID;
+                            $type = 2;
+                        }
+                    }
+                    if ($this->options->display_pages() == 3) {
+                        if ($ID !== FALSE && $type !== FALSE) {
+                            if (strpos($this->options->include_pages(), $type . '.' . $ID) === FALSE)
+                                return FALSE;
+                            else
+                                return TRUE;
+                        }
+                        return FALSE;
+                    }
+                    if ($this->options->display_pages() == 4) {
+                        if ($ID !== FALSE && $type !== FALSE) {
+                            if (strpos($this->options->exclude_pages(), $type . '.' . $ID) === FALSE)
+                                return TRUE;
+                            else
+                                return FALSE;
+                        }
+                        return TRUE;
+                    }
+            }
+
+            return TRUE;
+        }
+
+        private function enabled() {
+            if ($this->options->enabled()) {
+                return $this->filter_page();
+            }
+
+            return FALSE;
+        }
+
     }
 
 }

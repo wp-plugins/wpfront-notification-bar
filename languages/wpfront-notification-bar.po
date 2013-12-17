@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: WPFront Notification Bar\n"
-"POT-Creation-Date: 2013-12-09 21:03-0700\n"
-"PO-Revision-Date: 2013-12-09 21:04-0700\n"
+"POT-Creation-Date: 2013-12-16 22:09-0700\n"
+"PO-Revision-Date: 2013-12-16 22:09-0700\n"
 "Last-Translator: \n"
 "Language-Team: WPFront <contact@wpfront.com>\n"
 "Language: en\n"
@@ -102,25 +102,58 @@ msgstr "To Color"
 msgid "Button Text Color"
 msgstr "Button Text Color"
 
-#: ../classes/class-wpfront-notification-bar.php:100
+#: ../classes/class-wpfront-notification-bar-options.php:64
+msgid "Display on Pages"
+msgstr "Display on Pages"
+
+#: ../classes/class-wpfront-notification-bar-options.php:67
+msgid "Display Reopen Button"
+msgstr "Display Reopen Button"
+
+#: ../classes/class-wpfront-notification-bar-options.php:68
+msgid "Reopen Button Color"
+msgstr "Reopen Button Color"
+
+#: ../classes/class-wpfront-notification-bar-options.php:69
+msgid "Keep Closed"
+msgstr "Keep Closed"
+
+#: ../classes/class-wpfront-notification-bar-options.php:70
+msgid "Position Offset"
+msgstr "Position Offset"
+
+#: ../classes/class-wpfront-notification-bar.php:114
 msgid "WPFront Notification Bar"
 msgstr "WPFront Notification Bar"
 
-#: ../classes/class-wpfront-notification-bar.php:100
+#: ../classes/class-wpfront-notification-bar.php:114
 msgid "Notification Bar"
 msgstr "Notification Bar"
 
-#: ../classes/class-wpfront-notification-bar.php:132
+#: ../classes/class-wpfront-notification-bar.php:146
 msgid "You do not have sufficient permissions to access this page."
 msgstr "You do not have sufficient permissions to access this page."
 
-#: ../classes/class-wpfront-notification-bar.php:142
+#: ../classes/class-wpfront-notification-bar.php:156
 msgid "Settings"
 msgstr "Settings"
 
-#: ../classes/class-wpfront-notification-bar.php:198
+#: ../classes/class-wpfront-notification-bar.php:215
 msgid "Save Changes"
 msgstr "Save Changes"
+
+#: ../classes/class-wpfront-notification-bar.php:230
+#: ../classes/class-wpfront-notification-bar.php:234
+msgid "[Page]"
+msgstr "[Page]"
+
+#: ../classes/class-wpfront-notification-bar.php:230
+msgid "Home"
+msgstr "Home"
+
+#: ../classes/class-wpfront-notification-bar.php:239
+msgid "[Post]"
+msgstr "[Post]"
 
 #: ../templates/options-template.php:34
 msgid "WPFront Notification Bar Settings"
@@ -150,7 +183,7 @@ msgstr "Bottom"
 msgid "[Sticky Bar, bar will stay at position regardless of scrolling.]"
 msgstr "[Sticky Bar, bar will stay at position regardless of scrolling.]"
 
-#: ../templates/options-template.php:83
+#: ../templates/options-template.php:83 ../templates/options-template.php:91
 msgid "px"
 msgstr "px"
 
@@ -158,54 +191,122 @@ msgstr "px"
 msgid "Set 0px to auto fit contents."
 msgstr "Set 0px to auto fit contents."
 
-#: ../templates/options-template.php:91 ../templates/options-template.php:99
-#: ../templates/options-template.php:115
+#: ../templates/options-template.php:91
+msgid ""
+"(Top bar only) If you find the bar overlapping, try increasing this value. "
+"(eg. WordPress 3.8 Twenty Fourteen theme, set 48px)"
+msgstr ""
+"(Top bar only) If you find the bar overlapping, try increasing this value. "
+"(eg. WordPress 3.8 Twenty Fourteen theme, set 48px)"
+
+#: ../templates/options-template.php:99 ../templates/options-template.php:107
+#: ../templates/options-template.php:123
 msgid "second(s)"
 msgstr "second(s)"
 
-#: ../templates/options-template.php:91
+#: ../templates/options-template.php:99
 msgid "Set 0 second(s) to display immediately."
 msgstr "Set 0 second(s) to display immediately."
 
-#: ../templates/options-template.php:99
+#: ../templates/options-template.php:107
 msgid "Set 0 second(s) for no animation."
 msgstr "Set 0 second(s) for no animation."
 
-#: ../templates/options-template.php:107
+#: ../templates/options-template.php:115
 msgid "[Displays a close button at the top right corner of the bar.]"
 msgstr "[Displays a close button at the top right corner of the bar.]"
 
-#: ../templates/options-template.php:115
+#: ../templates/options-template.php:123
 msgid "Set 0 second(s) to disable auto close."
 msgstr "Set 0 second(s) to disable auto close."
 
-#: ../templates/options-template.php:128
+#: ../templates/options-template.php:139
+msgid "A reopen button will be displayed after the bar is closed."
+msgstr "A reopen button will be displayed after the bar is closed."
+
+#: ../templates/options-template.php:147
+msgid "Once closed, bar will display closed on other pages."
+msgstr "Once closed, bar will display closed on other pages."
+
+#: ../templates/options-template.php:152
 msgid "Content"
 msgstr "Content"
 
-#: ../templates/options-template.php:137
+#: ../templates/options-template.php:161
 msgid "[HTML tags are allowed. e.g. Add <br /> for break.]"
 msgstr "[HTML tags are allowed. e.g. Add <br /> for break.]"
 
-#: ../templates/options-template.php:145
+#: ../templates/options-template.php:169
 msgid "[Displays a button next to the message.]"
 msgstr "[Displays a button next to the message.]"
 
-#: ../templates/options-template.php:190
+#: ../templates/options-template.php:214
+msgid "Filter"
+msgstr "Filter"
+
+#: ../templates/options-template.php:223
+msgid "All pages."
+msgstr "All pages."
+
+#: ../templates/options-template.php:228
+msgid "Only in landing page."
+msgstr "Only in landing page."
+
+#: ../templates/options-template.php:228
+msgid "[The first page they visit on your website.]"
+msgstr "[The first page they visit on your website.]"
+
+#: ../templates/options-template.php:233
+msgid "Include in following pages"
+msgstr "Include in following pages"
+
+#: ../templates/options-template.php:251
+msgid "Exclude in following pages"
+msgstr "Exclude in following pages"
+
+#: ../templates/options-template.php:271
 msgid "Color"
 msgstr "Color"
 
-#: ../templates/options-template.php:194
+#: ../templates/options-template.php:275
 msgid "Bar Color"
 msgstr "Bar Color"
 
-#: ../templates/options-template.php:203 ../templates/options-template.php:226
+#: ../templates/options-template.php:284 ../templates/options-template.php:307
 msgid "[Select two different colors to create a gradient.]"
 msgstr "[Select two different colors to create a gradient.]"
 
-#: ../templates/options-template.php:217
+#: ../templates/options-template.php:298
 msgid "Button Color"
 msgstr "Button Color"
+
+#: ../templates/options-template.php:332
+msgid "Plugin Ideas"
+msgstr "Plugin Ideas"
+
+#: ../templates/options-template.php:334
+msgid "Settings Description"
+msgstr "Settings Description"
+
+#: ../templates/options-template.php:336
+msgid "Plugin FAQ"
+msgstr "Plugin FAQ"
+
+#: ../templates/options-template.php:338
+msgid "Feature Request"
+msgstr "Feature Request"
+
+#: ../templates/options-template.php:340
+msgid "Report Bug"
+msgstr "Report Bug"
+
+#: ../templates/options-template.php:342
+msgid "Write Review"
+msgstr "Write Review"
+
+#: ../templates/options-template.php:344
+msgid "Contact Me (syam@wpfront.com)"
+msgstr "Contact Me (syam@wpfront.com)"
 
 #~ msgid "Animate Display"
 #~ msgstr "Animate Display"
