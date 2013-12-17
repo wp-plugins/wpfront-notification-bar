@@ -24,7 +24,7 @@ Want to display a notification about a promotion or a news? WPFront Notification
 * Set the number of **seconds before auto close**.
 * **Colors** are fully **customizable**.
 * Display a **Reopen Button**.
-* **Select the pages/posts ** you want to display the notification.
+* **Select the pages/posts** you want to display the notification.
 
 Visit [WPFront Notification Bar Ideas](http://wpfront.com/notification-bar-plugin-ideas/) page for some useful functionalities.
 
