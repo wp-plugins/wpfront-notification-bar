@@ -35,7 +35,7 @@ if (!class_exists('WPFront_Notification_Bar')) {
     class WPFront_Notification_Bar {
 
         //Constants
-        const VERSION = '1.1';
+        const VERSION = '1.2';
         const OPTIONSPAGE_SLUG = 'wpfront-notification-bar';
         const OPTIONS_GROUP_NAME = 'wpfront-notification-bar-options-group';
         const OPTION_NAME = 'wpfront-notification-bar-options';
@@ -194,6 +194,7 @@ if (!class_exists('WPFront_Notification_Bar')) {
                     'is_admin_bar_showing' => $this->is_admin_bar_showing(),
                     'display_open_button' => $this->options->display_open_button(),
                     'keep_closed' => $this->options->keep_closed(),
+                    'keep_closed_for' => $this->options->keep_closed_for(),
                     'position_offset' => $this->options->position_offset(),
                 )) . ');';
                 echo '</script>';

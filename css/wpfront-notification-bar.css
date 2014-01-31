@@ -44,20 +44,9 @@
     font-size: 10px;
     padding: 5px 2px;
 
-    border: 1px solid #555;
     -webkit-border-radius: 2px;
     -moz-border-radius: 2px;
     border-radius: 2px;
-
-
-    color: #000;
-    background-color: #555;
-}
-
-#wpfront-notification-bar  div.wpfront-close:hover
-{
-    border: 1px solid #aaa;
-    background-color: #aaa;
 }
 
 #wpfront-notification-bar  table, #wpfront-notification-bar  tbody, #wpfront-notification-bar  tr
@@ -65,10 +54,12 @@
     margin: auto;
     border: 0px;
     padding: 0px;
+    background: inherit;
 }
 
 #wpfront-notification-bar  td
 {
+    background: inherit;
     vertical-align: middle;
     text-align: center;
     border: 0px;

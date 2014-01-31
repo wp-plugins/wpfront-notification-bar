@@ -27,6 +27,12 @@
 
 }
 
+#wpfront-notification-bar-options table.form-table .color-selector-div
+{
+    display: inline-block;
+    width: 100px;
+}
+
 #wpfront-notification-bar-options table.form-table .color-selector 
 {
     vertical-align: middle;

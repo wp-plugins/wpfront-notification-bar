@@ -67,7 +67,12 @@ if (!class_exists('WPFront_Notification_Bar_Options')) {
             $this->addOption('display_open_button', 'bit', false)->__('Display Reopen Button');
             $this->addOption('open_button_color', 'string', '#00b7ea')->__('Reopen Button Color');
             $this->addOption('keep_closed', 'bit', FALSE)->__('Keep Closed');
+            $this->addOption('keep_closed_for', 'int', 0, array($this, 'validate_zero_positive'))->__('Keep Closed For');
             $this->addOption('position_offset', 'int', 0)->__('Position Offset');
+            $this->addOption('custom_css', 'string', '')->__('Custom CSS');
+            $this->addOption('close_button_color', 'string', '#555555', array($this, 'validate_color'))->__('Close Button Color');
+            $this->addOption('close_button_color_hover', 'string', '#aaaaaa', array($this, 'validate_color'));
+            $this->addOption('close_button_color_x', 'string', '#000000', array($this, 'validate_color'));
         }
 
         //validation function

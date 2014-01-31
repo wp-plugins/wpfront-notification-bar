@@ -3,8 +3,8 @@ Contributors: syammohanm
 Donate link: http://wpfront.com/donate/
 Tags: notification bar, wordpress notification bar, top bar, bottom bar, notification, bar, quick bar, fixed bar, sticky bar, message bar, message, floating bar, notice, sticky header, special offer, discount offer, offer, important, attention bar, highlight bar, popup bar, hellobar, heads up, heads up bar, headsup, headsupbar, popup, Toolbar
 Requires at least: 3.0
-Tested up to: 3.8
-Stable tag: 1.1
+Tested up to: 3.8.1
+Stable tag: 1.2
 License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -55,6 +55,11 @@ No one has asked anything yet.
 
 == Changelog ==
 
+= 1.2 =
+* Keep closed for days.
+* Change color of close button.
+* Custom CSS option added.
+
 = 1.1 =
 * Filter pages option added.
 * Reopen button added.
@@ -69,6 +74,10 @@ No one has asked anything yet.
 * Initial release
 
 == Upgrade Notice ==
+
+= 1.2 =
+* Now you can keep it closed for days.
+* Change the color of close button.
 
 = 1.1 =
 * This version is WordPress 3.8 ready.

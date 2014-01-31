@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: WPFront Notification Bar\n"
-"POT-Creation-Date: 2013-12-16 22:09-0700\n"
-"PO-Revision-Date: 2013-12-16 22:09-0700\n"
+"POT-Creation-Date: 2014-01-30 17:38-0700\n"
+"PO-Revision-Date: 2014-01-30 17:39-0700\n"
 "Last-Translator: \n"
 "Language-Team: WPFront <contact@wpfront.com>\n"
 "Language: en\n"
@@ -119,8 +119,20 @@ msgid "Keep Closed"
 msgstr "Keep Closed"
 
 #: ../classes/class-wpfront-notification-bar-options.php:70
+msgid "Keep Closed For"
+msgstr "Keep Closed For"
+
+#: ../classes/class-wpfront-notification-bar-options.php:71
 msgid "Position Offset"
 msgstr "Position Offset"
+
+#: ../classes/class-wpfront-notification-bar-options.php:72
+msgid "Custom CSS"
+msgstr "Custom CSS"
+
+#: ../classes/class-wpfront-notification-bar-options.php:73
+msgid "Close Button Color"
+msgstr "Close Button Color"
 
 #: ../classes/class-wpfront-notification-bar.php:114
 msgid "WPFront Notification Bar"
@@ -138,20 +150,20 @@ msgstr "You do not have sufficient permissions to access this page."
 msgid "Settings"
 msgstr "Settings"
 
-#: ../classes/class-wpfront-notification-bar.php:215
+#: ../classes/class-wpfront-notification-bar.php:216
 msgid "Save Changes"
 msgstr "Save Changes"
 
-#: ../classes/class-wpfront-notification-bar.php:230
-#: ../classes/class-wpfront-notification-bar.php:234
+#: ../classes/class-wpfront-notification-bar.php:231
+#: ../classes/class-wpfront-notification-bar.php:235
 msgid "[Page]"
 msgstr "[Page]"
 
-#: ../classes/class-wpfront-notification-bar.php:230
+#: ../classes/class-wpfront-notification-bar.php:231
 msgid "Home"
 msgstr "Home"
 
-#: ../classes/class-wpfront-notification-bar.php:239
+#: ../classes/class-wpfront-notification-bar.php:240
 msgid "[Post]"
 msgstr "[Post]"
 
@@ -228,83 +240,103 @@ msgstr "A reopen button will be displayed after the bar is closed."
 msgid "Once closed, bar will display closed on other pages."
 msgstr "Once closed, bar will display closed on other pages."
 
-#: ../templates/options-template.php:152
+#: ../templates/options-template.php:155
+msgid "day(s)"
+msgstr "day(s)"
+
+#: ../templates/options-template.php:155
+msgid ""
+"Bar will be kept closed for the number of days specified from last closed "
+"date."
+msgstr ""
+"Bar will be kept closed for the number of days specified from last closed "
+"date."
+
+#: ../templates/options-template.php:160
 msgid "Content"
 msgstr "Content"
 
-#: ../templates/options-template.php:161
+#: ../templates/options-template.php:169
 msgid "[HTML tags are allowed. e.g. Add <br /> for break.]"
 msgstr "[HTML tags are allowed. e.g. Add <br /> for break.]"
 
-#: ../templates/options-template.php:169
+#: ../templates/options-template.php:177
 msgid "[Displays a button next to the message.]"
 msgstr "[Displays a button next to the message.]"
 
-#: ../templates/options-template.php:214
+#: ../templates/options-template.php:222
 msgid "Filter"
 msgstr "Filter"
 
-#: ../templates/options-template.php:223
+#: ../templates/options-template.php:231
 msgid "All pages."
 msgstr "All pages."
 
-#: ../templates/options-template.php:228
+#: ../templates/options-template.php:236
 msgid "Only in landing page."
 msgstr "Only in landing page."
 
-#: ../templates/options-template.php:228
+#: ../templates/options-template.php:236
 msgid "[The first page they visit on your website.]"
 msgstr "[The first page they visit on your website.]"
 
-#: ../templates/options-template.php:233
+#: ../templates/options-template.php:241
 msgid "Include in following pages"
 msgstr "Include in following pages"
 
-#: ../templates/options-template.php:251
+#: ../templates/options-template.php:259
 msgid "Exclude in following pages"
 msgstr "Exclude in following pages"
 
-#: ../templates/options-template.php:271
+#: ../templates/options-template.php:279
 msgid "Color"
 msgstr "Color"
 
-#: ../templates/options-template.php:275
+#: ../templates/options-template.php:283
 msgid "Bar Color"
 msgstr "Bar Color"
 
-#: ../templates/options-template.php:284 ../templates/options-template.php:307
+#: ../templates/options-template.php:294 ../templates/options-template.php:319
 msgid "[Select two different colors to create a gradient.]"
 msgstr "[Select two different colors to create a gradient.]"
 
-#: ../templates/options-template.php:298
+#: ../templates/options-template.php:308
 msgid "Button Color"
 msgstr "Button Color"
 
-#: ../templates/options-template.php:332
+#: ../templates/options-template.php:357
+msgid "[Normal, Hover, X]"
+msgstr "[Normal, Hover, X]"
+
+#: ../templates/options-template.php:362
+msgid "CSS"
+msgstr "CSS"
+
+#: ../templates/options-template.php:376
 msgid "Plugin Ideas"
 msgstr "Plugin Ideas"
 
-#: ../templates/options-template.php:334
+#: ../templates/options-template.php:378
 msgid "Settings Description"
 msgstr "Settings Description"
 
-#: ../templates/options-template.php:336
+#: ../templates/options-template.php:380
 msgid "Plugin FAQ"
 msgstr "Plugin FAQ"
 
-#: ../templates/options-template.php:338
+#: ../templates/options-template.php:382
 msgid "Feature Request"
 msgstr "Feature Request"
 
-#: ../templates/options-template.php:340
+#: ../templates/options-template.php:384
 msgid "Report Bug"
 msgstr "Report Bug"
 
-#: ../templates/options-template.php:342
+#: ../templates/options-template.php:386
 msgid "Write Review"
 msgstr "Write Review"
 
-#: ../templates/options-template.php:344
+#: ../templates/options-template.php:388
 msgid "Contact Me (syam@wpfront.com)"
 msgstr "Contact Me (syam@wpfront.com)"
 

@@ -60,10 +60,23 @@
 
         color: <?php echo $this->options->button_text_color(); ?>;
     }
-    
+
     #wpfront-notification-bar-open-button
     {
         background-color: <?php echo $this->options->open_button_color(); ?>;
+    }
+
+    #wpfront-notification-bar  div.wpfront-close 
+    {
+        border: 1px solid <?php echo $this->options->close_button_color(); ?>;
+        background-color: <?php echo $this->options->close_button_color(); ?>;
+        color: <?php echo $this->options->close_button_color_x(); ?>;
+    }
+
+    #wpfront-notification-bar  div.wpfront-close:hover 
+    {
+        border: 1px solid <?php echo $this->options->close_button_color_hover(); ?>;
+        background-color: <?php echo $this->options->close_button_color_hover(); ?>;
     }
 </style>
 
@@ -106,3 +119,8 @@
         </table>
     </div>
 </div>
+
+
+<style type="text/css">
+<?php echo $this->options->custom_css(); ?>
+</style>

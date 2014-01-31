@@ -54,7 +54,7 @@
 
         //function to set bar height based on options
         var closed = false;
-        function setHeight(height, callback) {
+        function setHeight(height, callback, userclosed) {
             callback = callback || $.noop;
             if (height == 0) {
                 if (closed)
@@ -75,8 +75,11 @@
                 if (height == 0 && data.display_open_button) {
                     open_button.show();
                 }
-                if (height == 0) {
-                    $.cookie(keep_closed_cookie, 1, {path: "/"});
+                if (height == 0 && data.keep_closed && userclosed) {
+                    if (data.keep_closed_for > 0)
+                        $.cookie(keep_closed_cookie, 1, {path: "/", expires: data.keep_closed_for});
+                    else
+                        $.cookie(keep_closed_cookie, 1, {path: "/"});
                 }
             };
 
@@ -97,14 +100,14 @@
 
         if (data.close_button) {
             bar.find(".wpfront-close").click(function() {
-                setHeight(0);
+                setHeight(0, null, true);
             });
         }
 
         //close button action
         if (data.button_action_close_bar) {
             bar.find(".wpfront-button").click(function() {
-                setHeight(0);
+                setHeight(0, null, true);
             });
         }
 
@@ -126,7 +129,7 @@
             setHeight(height, function() {
                 if (data.auto_close_after > 0) {
                     setTimeout(function() {
-                        setHeight(0);
+                        setHeight(0, null, true);
                     }, data.auto_close_after * 1000);
                 }
             });

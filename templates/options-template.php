@@ -147,6 +147,14 @@
                         <input type="checkbox" name="<?php echo $this->options->keep_closed_name(); ?>" <?php echo $this->options->keep_closed() ? 'checked' : ''; ?> />&#160;<span class="description">[<?php echo $this->__('Once closed, bar will display closed on other pages.'); ?>]</span>
                     </td>
                 </tr>
+                <tr>
+                    <th scope="row">
+                        <?php echo $this->options->keep_closed_for_label(); ?>
+                    </th>
+                    <td>
+                        <input class="seconds" name="<?php echo $this->options->keep_closed_for_name(); ?>" value="<?php echo $this->options->keep_closed_for(); ?>" />&#160;<?php echo $this->__('day(s)'); ?>&#160;<span class="description">[<?php echo $this->__('Bar will be kept closed for the number of days specified from last closed date.'); ?>]</span>
+                    </td>
+                </tr>
             </table>
 
             <h3><?php echo $this->__('Content'); ?></h3>
@@ -275,12 +283,14 @@
                         <?php echo $this->__('Bar Color'); ?>
                     </th>
                     <td>
-                        <div class="color-selector" color="<?php echo $this->options->bar_from_color(); ?>"></div>&#160;<span><?php echo $this->options->bar_from_color(); ?></span>
-                        <input type="hidden" name="<?php echo $this->options->bar_from_color_name(); ?>" value="<?php echo $this->options->bar_from_color(); ?>" />
-                        &#160;&#160;
-                        <div class="color-selector" color="<?php echo $this->options->bar_to_color(); ?>"></div>&#160;<span><?php echo $this->options->bar_to_color(); ?></span>
-                        <input type="hidden" name="<?php echo $this->options->bar_to_color_name(); ?>" value="<?php echo $this->options->bar_to_color(); ?>" />
-                        &#160;&#160;
+                        <div class="color-selector-div">
+                            <div class="color-selector" color="<?php echo $this->options->bar_from_color(); ?>"></div>&#160;<span><?php echo $this->options->bar_from_color(); ?></span>
+                            <input type="hidden" name="<?php echo $this->options->bar_from_color_name(); ?>" value="<?php echo $this->options->bar_from_color(); ?>" />
+                        </div>
+                        <div class="color-selector-div">
+                            <div class="color-selector" color="<?php echo $this->options->bar_to_color(); ?>"></div>&#160;<span><?php echo $this->options->bar_to_color(); ?></span>
+                            <input type="hidden" name="<?php echo $this->options->bar_to_color_name(); ?>" value="<?php echo $this->options->bar_to_color(); ?>" />
+                        </div>
                         <span class="description"><?php echo $this->__('[Select two different colors to create a gradient.]'); ?></span>
                     </td>
                 </tr>
@@ -298,12 +308,14 @@
                         <?php echo $this->__('Button Color'); ?>
                     </th>
                     <td>
-                        <div class="color-selector" color="<?php echo $this->options->button_from_color(); ?>"></div>&#160;<span><?php echo $this->options->button_from_color(); ?></span>
-                        <input type="hidden" name="<?php echo $this->options->button_from_color_name(); ?>" value="<?php echo $this->options->button_from_color(); ?>" />
-                        &#160;&#160;
-                        <div class="color-selector" color="<?php echo $this->options->button_to_color(); ?>"></div>&#160;<span><?php echo $this->options->button_to_color(); ?></span>
-                        <input type="hidden" name="<?php echo $this->options->button_to_color_name(); ?>" value="<?php echo $this->options->button_to_color(); ?>" />
-                        &#160;&#160;
+                        <div class="color-selector-div">
+                            <div class="color-selector" color="<?php echo $this->options->button_from_color(); ?>"></div>&#160;<span><?php echo $this->options->button_from_color(); ?></span>
+                            <input type="hidden" name="<?php echo $this->options->button_from_color_name(); ?>" value="<?php echo $this->options->button_from_color(); ?>" />
+                        </div>
+                        <div class="color-selector-div">
+                            <div class="color-selector" color="<?php echo $this->options->button_to_color(); ?>"></div>&#160;<span><?php echo $this->options->button_to_color(); ?></span>
+                            <input type="hidden" name="<?php echo $this->options->button_to_color_name(); ?>" value="<?php echo $this->options->button_to_color(); ?>" />
+                        </div>
                         <span class="description"><?php echo $this->__('[Select two different colors to create a gradient.]'); ?></span>
                     </td>
                 </tr>
@@ -325,10 +337,42 @@
                         <input type="hidden" name="<?php echo $this->options->open_button_color_name(); ?>" value="<?php echo $this->options->open_button_color(); ?>" />
                     </td>
                 </tr>
+                <tr>
+                    <th scope="row">
+                        <?php echo $this->options->close_button_color_label(); ?>
+                    </th>
+                    <td>
+                        <div class="color-selector-div">
+                            <div class="color-selector" color="<?php echo $this->options->close_button_color(); ?>"></div>&#160;<span><?php echo $this->options->close_button_color(); ?></span>
+                            <input type="hidden" name="<?php echo $this->options->close_button_color_name(); ?>" value="<?php echo $this->options->close_button_color(); ?>" />
+                        </div>
+                        <div class="color-selector-div">
+                            <div class="color-selector" color="<?php echo $this->options->close_button_color_hover(); ?>"></div>&#160;<span><?php echo $this->options->close_button_color_hover(); ?></span>
+                            <input type="hidden" name="<?php echo $this->options->close_button_color_hover_name(); ?>" value="<?php echo $this->options->close_button_color_hover(); ?>" />
+                        </div>
+                        <div class="color-selector-div">
+                            <div class="color-selector" color="<?php echo $this->options->close_button_color_x(); ?>"></div>&#160;<span><?php echo $this->options->close_button_color_x(); ?></span>
+                            <input type="hidden" name="<?php echo $this->options->close_button_color_x_name(); ?>" value="<?php echo $this->options->close_button_color_x(); ?>" />
+                        </div>
+                        <span class="description"><?php echo $this->__('[Normal, Hover, X]'); ?></span>
+                    </td>
+                </tr>
+            </table>
+
+            <h3><?php echo $this->__('CSS'); ?></h3>
+            <table class="form-table">
+                <tr>
+                    <th scope="row">
+                        <?php echo $this->options->custom_css_label(); ?>
+                    </th>
+                    <td>
+                        <textarea name="<?php echo $this->options->custom_css_name(); ?>" rows="10" cols="75"><?php echo $this->options->custom_css(); ?></textarea>
+                    </td>
+                </tr>
             </table>
 
             <?php @$this->submit_button(); ?>
-            
+
             <a href="http://wpfront.com/notification-bar-plugin-ideas/" target="_blank"><?php echo $this->__('Plugin Ideas'); ?></a>
             |
             <a href="http://wpfront.com/notification-bar-plugin-settings/" target="_blank"><?php echo $this->__('Settings Description'); ?></a>
