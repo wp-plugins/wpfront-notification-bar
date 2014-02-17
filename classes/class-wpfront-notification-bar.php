@@ -35,7 +35,7 @@ if (!class_exists('WPFront_Notification_Bar')) {
     class WPFront_Notification_Bar {
 
         //Constants
-        const VERSION = '1.2';
+        const VERSION = '1.2.1';
         const OPTIONSPAGE_SLUG = 'wpfront-notification-bar';
         const OPTIONS_GROUP_NAME = 'wpfront-notification-bar-options-group';
         const OPTION_NAME = 'wpfront-notification-bar-options';
@@ -90,7 +90,7 @@ if (!class_exists('WPFront_Notification_Bar')) {
             $jsRoot = $this->pluginURLRoot . 'js/';
 
             wp_enqueue_script('jquery');
-            wp_enqueue_script('jquery.cookie', $this->pluginURLRoot . 'jquery-plugins/jquery.cookie.js', array('jquery'), '1.4.0');
+            wp_enqueue_script('jquery.cookie', $this->pluginURLRoot . 'jquery-plugins/jquery.c.js', array('jquery'), '1.4.0');
             wp_enqueue_script('wpfront-notification-bar', $jsRoot . 'wpfront-notification-bar.js', array('jquery'), self::VERSION);
 
             $this->scriptLoaded = TRUE;
@@ -164,7 +164,7 @@ if (!class_exists('WPFront_Notification_Bar')) {
             $this->options = new WPFront_Notification_Bar_Options(self::OPTION_NAME, self::PLUGIN_SLUG);
 
             //for localization
-            load_plugin_textdomain(self::PLUGIN_SLUG, FALSE, $this->pluginDIRRoot . 'languages/');
+            load_plugin_textdomain(self::PLUGIN_SLUG, FALSE, self::PLUGIN_SLUG . '/languages/');
         }
 
         //writes the html and script for the bar

@@ -4,7 +4,7 @@ Donate link: http://wpfront.com/donate/
 Tags: notification bar, wordpress notification bar, top bar, bottom bar, notification, bar, quick bar, fixed bar, sticky bar, message bar, message, floating bar, notice, sticky header, special offer, discount offer, offer, important, attention bar, highlight bar, popup bar, hellobar, heads up, heads up bar, headsup, headsupbar, popup, Toolbar
 Requires at least: 3.0
 Tested up to: 3.8.1
-Stable tag: 1.2
+Stable tag: 1.2.1
 License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -29,6 +29,9 @@ Want to display a notification about a promotion or a news? WPFront Notification
 Visit [WPFront Notification Bar Ideas](http://wpfront.com/notification-bar-plugin-ideas/) page for some useful functionalities.
 
 Visit [WPFront Notification Bar Settings](http://wpfront.com/notification-bar-plugin-settings/) page for detailed option descriptions.
+
+Localization Contributors:
+<li>[Anders Lind](http://erding-mallards.de) (German) </li>
 
 == Installation ==
 
@@ -55,6 +58,10 @@ No one has asked anything yet.
 
 == Changelog ==
 
+= 1.2.1 =
+* Fixed an issue with mod_security.
+* German language added. Thanks to Anders Lind.
+
 = 1.2 =
 * Keep closed for days.
 * Change color of close button.
@@ -74,6 +81,9 @@ No one has asked anything yet.
 * Initial release
 
 == Upgrade Notice ==
+
+= 1.2.1 =
+* Fixed an issue with mod_security on "cookie" rule.
 
 = 1.2 =
 * Now you can keep it closed for days.

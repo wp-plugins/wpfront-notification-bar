@@ -3,10 +3,11 @@
  * Plugin Name: WPFront Notification Bar
  * Plugin URI: http://wpfront.com/notification-bar-plugin/ 
  * Description: Easily lets you create a bar on top or bottom to display a notification.
- * Version: 1.2
+ * Version: 1.2.1
  * Author: Syam Mohan
  * Author URI: http://wpfront.com
  * License: GPL v3 
+ * Text Domain: wpfront-notification-bar
 */
 
 /*
