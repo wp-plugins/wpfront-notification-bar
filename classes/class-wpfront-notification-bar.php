@@ -22,6 +22,7 @@
   SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
+require_once("base/class-wpfront-base.php");
 require_once("class-wpfront-notification-bar-options.php");
 
 if (!class_exists('WPFront_Notification_Bar')) {
@@ -32,11 +33,10 @@ if (!class_exists('WPFront_Notification_Bar')) {
      * @author Syam Mohan <syam@wpfront.com>
      * @copyright 2013 WPFront.com
      */
-    class WPFront_Notification_Bar {
+    class WPFront_Notification_Bar extends WPFront_Base {
 
         //Constants
         const VERSION = '1.2.1';
-        const OPTIONSPAGE_SLUG = 'wpfront-notification-bar';
         const OPTIONS_GROUP_NAME = 'wpfront-notification-bar-options-group';
         const OPTION_NAME = 'wpfront-notification-bar-options';
         const PLUGIN_SLUG = 'wpfront-notification-bar';
@@ -45,34 +45,19 @@ if (!class_exists('WPFront_Notification_Bar')) {
         const COOKIE_LANDINGPAGE = 'wpfront-notification-bar-landingpage';
 
         //Variables
-        private $pluginURLRoot;
-        private $pluginDIRRoot;
-        private $options;
+        protected $options;
         private $markupLoaded;
         private $scriptLoaded;
 
         function __construct() {
+            parent::__construct(__FILE__, self::PLUGIN_SLUG);
+            
             $this->markupLoaded = FALSE;
-
-            //Root variables
-            $this->pluginURLRoot = plugins_url() . '/wpfront-notification-bar/';
-            $this->pluginDIRRoot = dirname(__FILE__) . '/../';
-
-            add_action('init', array(&$this, 'init'));
-
-            //register actions
-            if (is_admin()) {
-                add_action('admin_init', array(&$this, 'admin_init'));
-                add_action('admin_menu', array(&$this, 'admin_menu'));
-                add_filter('plugin_action_links', array(&$this, 'action_links'), 10, 2);
-            } else {
-                add_action('wp_enqueue_scripts', array(&$this, 'enqueue_styles'));
-                add_action('wp_enqueue_scripts', array(&$this, 'enqueue_scripts'));
-            }
 
             add_action('wp_footer', array(&$this, 'write_markup'));
             add_action('shutdown', array(&$this, 'write_markup'));
-            add_action('plugins_loaded', array(&$this, 'plugins_loaded'));
+            
+            $this->add_menu($this->__('WPFront Notification Bar'), $this->__('Notification Bar'));
         }
 
         public function init() {
@@ -110,14 +95,6 @@ if (!class_exists('WPFront_Notification_Bar')) {
             register_setting(self::OPTIONS_GROUP_NAME, self::OPTION_NAME);
         }
 
-        public function admin_menu() {
-            $page_hook_suffix = add_options_page($this->__('WPFront Notification Bar'), $this->__('Notification Bar'), 'manage_options', self::OPTIONSPAGE_SLUG, array($this, 'options_page'));
-
-            //register for options page scripts and styles
-            add_action('admin_print_scripts-' . $page_hook_suffix, array($this, 'enqueue_options_scripts'));
-            add_action('admin_print_styles-' . $page_hook_suffix, array($this, 'enqueue_options_styles'));
-        }
-
         //options page scripts
         public function enqueue_options_scripts() {
             $this->enqueue_scripts();
@@ -140,31 +117,9 @@ if (!class_exists('WPFront_Notification_Bar')) {
             wp_enqueue_style('wpfront-notification-bar-options', $styleRoot . 'options.css', array(), self::VERSION);
         }
 
-        //creates options page
-        public function options_page() {
-            if (!current_user_can('manage_options')) {
-                wp_die($this->__('You do not have sufficient permissions to access this page.'));
-                return;
-            }
-
-            include($this->pluginDIRRoot . 'templates/options-template.php');
-        }
-
-        //add "settings" link
-        public function action_links($links, $file) {
-            if ($file == 'wpfront-notification-bar/wpfront-notification-bar.php') {
-                $settings_link = '<a href="' . get_bloginfo('wpurl') . '/wp-admin/options-general.php?page=' . self::OPTIONSPAGE_SLUG . '">' . $this->__('Settings') . '</a>';
-                array_unshift($links, $settings_link);
-            }
-            return $links;
-        }
-
         public function plugins_loaded() {
             //load plugin options
             $this->options = new WPFront_Notification_Bar_Options(self::OPTION_NAME, self::PLUGIN_SLUG);
-
-            //for localization
-            load_plugin_textdomain(self::PLUGIN_SLUG, FALSE, self::PLUGIN_SLUG . '/languages/');
         }
 
         //writes the html and script for the bar
@@ -191,7 +146,7 @@ if (!class_exists('WPFront_Notification_Bar')) {
                     'button_action_close_bar' => $this->options->button_action_close_bar(),
                     'auto_close_after' => $this->options->auto_close_after(),
                     'display_after' => $this->options->display_after(),
-                    'is_admin_bar_showing' => $this->is_admin_bar_showing(),
+                    'is_admin_bar_showing' => WPFront_Static::is_admin_bar_showing(),
                     'display_open_button' => $this->options->display_open_button(),
                     'keep_closed' => $this->options->keep_closed(),
                     'keep_closed_for' => $this->options->keep_closed_for(),
@@ -203,29 +158,7 @@ if (!class_exists('WPFront_Notification_Bar')) {
             $this->markupLoaded = TRUE;
         }
 
-        //returns localized string
-        public function __($key) {
-            return __($key, self::PLUGIN_SLUG);
-        }
-
-        //for compatibility
-        private function submit_button() {
-            if (function_exists('submit_button')) {
-                submit_button();
-            } else {
-                echo '<p class="submit"><input type="submit" name="submit" id="submit" class="button button-primary" value="' . $this->__('Save Changes') . '" /></p>';
-            }
-        }
-
-        private function is_admin_bar_showing() {
-            if (function_exists('is_admin_bar_showing')) {
-                return is_admin_bar_showing();
-            }
-
-            return FALSE;
-        }
-
-        private function get_filter_objects() {
+        protected function get_filter_objects() {
             $objects = array();
 
             $objects['1.home'] = $this->__('[Page]') . ' ' . $this->__('Home');
@@ -248,7 +181,7 @@ if (!class_exists('WPFront_Notification_Bar')) {
             return $objects;
         }
 
-        private function filter_page() {
+        protected function filter_page() {
             if (is_admin())
                 return TRUE;
             
@@ -298,14 +231,13 @@ if (!class_exists('WPFront_Notification_Bar')) {
             return TRUE;
         }
 
-        private function enabled() {
+        protected function enabled() {
             if ($this->options->enabled()) {
                 return $this->filter_page();
             }
 
             return FALSE;
         }
-
     }
 
 }
