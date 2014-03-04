@@ -445,7 +445,16 @@
             setColorPicker($(e));
         });
 
-        $('#wpfront-notification-bar-options .pages-selection input[type="checkbox"], #wpfront-notification-bar-options .roles-selection input[type="checkbox"]').change(function() {
+        $('#wpfront-notification-bar-options .pages-selection input[type="checkbox"]').change(function() {
+            var values = [];
+            var div = $(this).parent().parent().parent();
+            div.find('input:checked').each(function(i, e) {
+                values.push($(e).val());
+            });
+            div.children(":first").val(values.join());
+        });
+        
+        $('#wpfront-notification-bar-options .roles-selection input[type="checkbox"]').change(function() {
             var values = [];
             var div = $(this).parent().parent().parent();
             div.find('input:checked').each(function(i, e) {
