@@ -44,7 +44,7 @@ Localization Contributors:
 1. Download the .zip package
 1. Unzip into the subdirectory 'wpfront-notification-bar' within your local WordPress plugins directory
 1. Refresh plugin page and activate plugin
-1. Configure plugin using *settings* link under plugin name or by going to Settings/Notification Bar
+1. Configure plugin using *settings* link under plugin name or by going to WPFront/Notification Bar
 
 == Frequently Asked Questions ==
 
