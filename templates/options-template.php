@@ -232,8 +232,10 @@
                 foreach ($objects as $key => $value) {
                     ?>
                     <div class="page-div">
-                        <input type="checkbox" value="<?php echo $key; ?>" <?php echo strpos($this->options->include_pages(), $key) === FALSE ? '' : 'checked'; ?> />
-                        <span><?php echo $value; ?></span>
+                        <label>
+                            <input type="checkbox" value="<?php echo $key; ?>" <?php echo strpos($this->options->include_pages(), $key) === FALSE ? '' : 'checked'; ?> />
+                            <?php echo $value; ?>
+                        </label>
                     </div>
                     <?php
                 }
@@ -250,8 +252,10 @@
                 foreach ($objects as $key => $value) {
                     ?>
                     <div class="page-div">
-                        <input type="checkbox" value="<?php echo $key; ?>" <?php echo strpos($this->options->exclude_pages(), $key) === FALSE ? '' : 'checked'; ?> />
-                        <span><?php echo $value; ?></span>
+                        <label>
+                            <input type="checkbox" value="<?php echo $key; ?>" <?php echo strpos($this->options->exclude_pages(), $key) === FALSE ? '' : 'checked'; ?> />
+                            <?php echo $value; ?>
+                        </label>
                     </div>
                     <?php
                 }
@@ -290,19 +294,25 @@
                 foreach ($this->get_role_objects() as $key => $value) {
                     ?>
                     <div class="role-div">
-                        <input type="checkbox" value="<?php echo $key; ?>" <?php echo in_array($key, $this->options->include_roles()) === FALSE ? '' : 'checked'; ?> />
-                        <span><?php echo $value; ?></span>
+                        <label>
+                            <input type="checkbox" value="<?php echo $key; ?>" <?php echo in_array($key, $this->options->include_roles()) === FALSE ? '' : 'checked'; ?> />
+                            <?php echo $value; ?>
+                        </label>
                     </div>
                     <?php
                 }
                 ?>
                 <div class="role-div">
-                    <input type="checkbox" value="<?php echo WPFront_Notification_Bar::ROLE_NOROLE; ?>" <?php echo in_array(WPFront_Notification_Bar::ROLE_NOROLE, $this->options->include_roles()) === FALSE ? '' : 'checked'; ?> />
-                    <span><?php echo $this->__('[No Role]'); ?></span>
+                    <label>
+                        <input type="checkbox" value="<?php echo WPFront_Notification_Bar::ROLE_NOROLE; ?>" <?php echo in_array(WPFront_Notification_Bar::ROLE_NOROLE, $this->options->include_roles()) === FALSE ? '' : 'checked'; ?> />
+                        <?php echo $this->__('[No Role]'); ?>
+                    </label>
                 </div>
                 <div class="role-div">
-                    <input type="checkbox" value="<?php echo WPFront_Notification_Bar::ROLE_GUEST; ?>" <?php echo in_array(WPFront_Notification_Bar::ROLE_GUEST, $this->options->include_roles()) === FALSE ? '' : 'checked'; ?> />
-                    <span><?php echo $this->__('[Guest]'); ?></span>
+                    <label>
+                        <input type="checkbox" value="<?php echo WPFront_Notification_Bar::ROLE_GUEST; ?>" <?php echo in_array(WPFront_Notification_Bar::ROLE_GUEST, $this->options->include_roles()) === FALSE ? '' : 'checked'; ?> />
+                        <?php echo $this->__('[Guest]'); ?>
+                    </label>
                 </div>
             </div>
         </td>
@@ -437,11 +447,12 @@
 
         $('#wpfront-notification-bar-options .pages-selection input[type="checkbox"], #wpfront-notification-bar-options .roles-selection input[type="checkbox"]').change(function() {
             var values = [];
-            var div = $(this).parent().parent();
+            var div = $(this).parent().parent().parent();
             div.find('input:checked').each(function(i, e) {
                 values.push($(e).val());
             });
             div.children(":first").val(JSON.stringify(values));
         });
+
     })(jQuery);
 </script>
