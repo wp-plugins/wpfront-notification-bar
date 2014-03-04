@@ -285,7 +285,7 @@
             </label>
             <br />
             <div class="roles-selection">
-                <input type="hidden" name="<?php echo $this->options->include_roles_name(); ?>" value="<?php echo json_encode($this->options->include_roles()); ?>" />
+                <input type="hidden" name="<?php echo $this->options->include_roles_name(); ?>" value="<?php echo htmlentities(json_encode($this->options->include_roles())); ?>" />
                 <?php
                 foreach ($this->get_role_objects() as $key => $value) {
                     ?>
