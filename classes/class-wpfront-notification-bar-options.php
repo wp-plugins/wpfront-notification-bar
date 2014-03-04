@@ -74,7 +74,7 @@ if (!class_exists('WPFront_Notification_Bar_Options')) {
             $this->addOption('close_button_color_hover', 'string', '#aaaaaa', array($this, 'validate_color'));
             $this->addOption('close_button_color_x', 'string', '#000000', array($this, 'validate_color'));
             $this->addOption('display_roles', 'int', '1', array($this, 'validate_display_roles'))->__('Display for User Roles');
-            $this->addOption('include_roles', 'string', '', array($this, 'validate_include_roles'));
+            $this->addOption('include_roles', 'string', array(), array($this, 'validate_include_roles'));
         }
 
         //validation function
