@@ -73,6 +73,8 @@ if (!class_exists('WPFront_Notification_Bar_Options')) {
             $this->addOption('close_button_color', 'string', '#555555', array($this, 'validate_color'))->__('Close Button Color');
             $this->addOption('close_button_color_hover', 'string', '#aaaaaa', array($this, 'validate_color'));
             $this->addOption('close_button_color_x', 'string', '#000000', array($this, 'validate_color'));
+            $this->addOption('display_roles', 'int', '1', array($this, 'validate_display_roles'))->__('Display for User Roles');
+            $this->addOption('include_roles', 'string', array(), array($this, 'validate_include_roles'));
         }
 
         //validation function
@@ -87,7 +89,7 @@ if (!class_exists('WPFront_Notification_Bar_Options')) {
 
             return $arg;
         }
-        
+
         //validation function
         protected function validate_color($arg) {
             if (strlen($arg) != 7)
@@ -98,7 +100,7 @@ if (!class_exists('WPFront_Notification_Bar_Options')) {
 
             return $arg;
         }
-        
+
         protected function validate_display_pages($arg) {
             if ($arg < 1) {
                 return 1;
@@ -109,6 +111,25 @@ if (!class_exists('WPFront_Notification_Bar_Options')) {
             }
 
             return $arg;
+        }
+
+        protected function validate_display_roles($arg) {
+            if ($arg < 1) {
+                return 1;
+            }
+
+            if ($arg > 4) {
+                return 4;
+            }
+
+            return $arg;
+        }
+
+        protected function validate_include_roles($arg) {
+            $obj = json_decode($arg);
+            if(!is_array($obj))
+                return array();
+            return $obj;
         }
 
     }

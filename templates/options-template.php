@@ -232,8 +232,10 @@
                 foreach ($objects as $key => $value) {
                     ?>
                     <div class="page-div">
-                        <input type="checkbox" value="<?php echo $key; ?>" <?php echo strpos($this->options->include_pages(), $key) === FALSE ? '' : 'checked'; ?> />
-                        <span><?php echo $value; ?></span>
+                        <label>
+                            <input type="checkbox" value="<?php echo $key; ?>" <?php echo strpos($this->options->include_pages(), $key) === FALSE ? '' : 'checked'; ?> />
+                            <?php echo $value; ?>
+                        </label>
                     </div>
                     <?php
                 }
@@ -250,12 +252,68 @@
                 foreach ($objects as $key => $value) {
                     ?>
                     <div class="page-div">
-                        <input type="checkbox" value="<?php echo $key; ?>" <?php echo strpos($this->options->exclude_pages(), $key) === FALSE ? '' : 'checked'; ?> />
-                        <span><?php echo $value; ?></span>
+                        <label>
+                            <input type="checkbox" value="<?php echo $key; ?>" <?php echo strpos($this->options->exclude_pages(), $key) === FALSE ? '' : 'checked'; ?> />
+                            <?php echo $value; ?>
+                        </label>
                     </div>
                     <?php
                 }
                 ?>
+            </div>
+        </td>
+    </tr>
+    <tr>
+        <th scope="row">
+            <?php echo $this->options->display_roles_label(); ?>
+        </th>
+        <td>
+            <label>
+                <input type="radio" name="<?php echo $this->options->display_roles_name(); ?>" value="1" <?php echo $this->options->display_roles() == 1 ? 'checked' : ''; ?> />
+                <span><?php echo $this->__('All users.'); ?></span>
+            </label>
+            <br />
+            <label>
+                <input type="radio" name="<?php echo $this->options->display_roles_name(); ?>" value="2" <?php echo $this->options->display_roles() == 2 ? 'checked' : ''; ?> />
+                <span><?php echo $this->__('All logged in users.'); ?></span>
+            </label>
+            <br />
+            <label>
+                <input type="radio" name="<?php echo $this->options->display_roles_name(); ?>" value="3" <?php echo $this->options->display_roles() == 3 ? 'checked' : ''; ?> />
+                <span><?php echo $this->__('Guest users. [Non-logged in users]'); ?></span>
+            </label>
+            <br />
+            <label>
+                <input type="radio" name="<?php echo $this->options->display_roles_name(); ?>" value="4" <?php echo $this->options->display_roles() == 4 ? 'checked' : ''; ?> />
+                <span><?php echo $this->__('For following user roles'); ?></span>
+            </label>
+            <br />
+            <div class="roles-selection">
+                <input type="hidden" name="<?php echo $this->options->include_roles_name(); ?>" value="<?php echo htmlentities(json_encode($this->options->include_roles())); ?>" />
+                <?php
+                foreach ($this->get_role_objects() as $key => $value) {
+                    ?>
+                    <div class="role-div">
+                        <label>
+                            <input type="checkbox" value="<?php echo $key; ?>" <?php echo in_array($key, $this->options->include_roles()) === FALSE ? '' : 'checked'; ?> />
+                            <?php echo $value; ?>
+                        </label>
+                    </div>
+                    <?php
+                }
+                ?>
+                <div class="role-div">
+                    <label>
+                        <input type="checkbox" value="<?php echo WPFront_Notification_Bar::ROLE_NOROLE; ?>" <?php echo in_array(WPFront_Notification_Bar::ROLE_NOROLE, $this->options->include_roles()) === FALSE ? '' : 'checked'; ?> />
+                        <?php echo $this->__('[No Role]'); ?>
+                    </label>
+                </div>
+                <div class="role-div">
+                    <label>
+                        <input type="checkbox" value="<?php echo WPFront_Notification_Bar::ROLE_GUEST; ?>" <?php echo in_array(WPFront_Notification_Bar::ROLE_GUEST, $this->options->include_roles()) === FALSE ? '' : 'checked'; ?> />
+                        <?php echo $this->__('[Guest]'); ?>
+                    </label>
+                </div>
             </div>
         </td>
     </tr>
@@ -389,11 +447,21 @@
 
         $('#wpfront-notification-bar-options .pages-selection input[type="checkbox"]').change(function() {
             var values = [];
-            var div = $(this).parent().parent();
+            var div = $(this).parent().parent().parent();
             div.find('input:checked').each(function(i, e) {
                 values.push($(e).val());
             });
             div.children(":first").val(values.join());
         });
+        
+        $('#wpfront-notification-bar-options .roles-selection input[type="checkbox"]').change(function() {
+            var values = [];
+            var div = $(this).parent().parent().parent();
+            div.find('input:checked').each(function(i, e) {
+                values.push($(e).val());
+            });
+            div.children(":first").val(JSON.stringify(values));
+        });
+
     })(jQuery);
 </script>

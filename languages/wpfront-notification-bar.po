@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: WPFront Notification Bar\n"
-"POT-Creation-Date: 2014-02-24 16:41-0700\n"
-"PO-Revision-Date: 2014-02-24 16:42-0700\n"
+"POT-Creation-Date: 2014-03-03 17:59-0700\n"
+"PO-Revision-Date: 2014-03-03 17:59-0700\n"
 "Last-Translator: \n"
 "Language-Team: WPFront <contact@wpfront.com>\n"
 "Language: en\n"
@@ -17,97 +17,93 @@ msgstr ""
 "X-Poedit-SearchPath-0: ..\n"
 
 #: ../classes/base/class-wpfront-base-menu.php:52
-#: ../classes/base/class-wpfront-base-menu.php:62
 msgid "Name"
 msgstr "Name"
 
 #: ../classes/base/class-wpfront-base-menu.php:53
-#: ../classes/base/class-wpfront-base-menu.php:63
 msgid "Version"
 msgstr "Version"
 
 #: ../classes/base/class-wpfront-base-menu.php:54
-#: ../classes/base/class-wpfront-base-menu.php:64
 msgid "Rating"
 msgstr "Rating"
 
 #: ../classes/base/class-wpfront-base-menu.php:55
-#: ../classes/base/class-wpfront-base-menu.php:65
 msgid "Description"
 msgstr "Description"
 
-#: ../classes/base/class-wpfront-base-menu.php:75
+#: ../classes/base/class-wpfront-base-menu.php:69
 #, php-format
 msgid "based on %s rating(s)"
 msgstr "based on %s rating(s)"
 
-#: ../classes/base/class-wpfront-base-menu.php:111
+#: ../classes/base/class-wpfront-base-menu.php:105
 msgid "Unable to communicate with WordPress.org"
 msgstr "Unable to communicate with WordPress.org"
 
-#: ../classes/base/class-wpfront-base-menu.php:129
-#: ../classes/base/class-wpfront-base-menu.php:223
+#: ../classes/base/class-wpfront-base-menu.php:123
+#: ../classes/base/class-wpfront-base-menu.php:217
 msgid "WPFront Plugins"
 msgstr "WPFront Plugins"
 
-#: ../classes/base/class-wpfront-base-menu.php:153
+#: ../classes/base/class-wpfront-base-menu.php:147
 #, php-format
 msgid "By %s"
 msgstr "By %s"
 
-#: ../classes/base/class-wpfront-base-menu.php:160
+#: ../classes/base/class-wpfront-base-menu.php:154
 #, php-format
 msgid "More information about %s"
 msgstr "More information about %s"
 
-#: ../classes/base/class-wpfront-base-menu.php:160
+#: ../classes/base/class-wpfront-base-menu.php:154
 msgid "Details"
 msgstr "Details"
 
-#: ../classes/base/class-wpfront-base-menu.php:169
+#: ../classes/base/class-wpfront-base-menu.php:163
 #, php-format
 msgid "Install %s"
 msgstr "Install %s"
 
-#: ../classes/base/class-wpfront-base-menu.php:169
+#: ../classes/base/class-wpfront-base-menu.php:163
 msgid "Install Now"
 msgstr "Install Now"
 
-#: ../classes/base/class-wpfront-base-menu.php:174
+#: ../classes/base/class-wpfront-base-menu.php:168
 #, php-format
 msgid "Update to version %s"
 msgstr "Update to version %s"
 
-#: ../classes/base/class-wpfront-base-menu.php:174
+#: ../classes/base/class-wpfront-base-menu.php:168
 msgid "Update Now"
 msgstr "Update Now"
 
-#: ../classes/base/class-wpfront-base-menu.php:179
+#: ../classes/base/class-wpfront-base-menu.php:173
 msgid "This plugin is already installed and is up to date"
 msgstr "This plugin is already installed and is up to date"
 
-#: ../classes/base/class-wpfront-base-menu.php:179
+#: ../classes/base/class-wpfront-base-menu.php:173
 msgid "Installed"
 msgstr "Installed"
 
-#: ../classes/base/class-wpfront-base-menu.php:181
+#: ../classes/base/class-wpfront-base-menu.php:175
 #: ../classes/base/class-wpfront-base.php:105
 msgid "Settings"
 msgstr "Settings"
 
-#: ../classes/base/class-wpfront-base-menu.php:183
+#: ../classes/base/class-wpfront-base-menu.php:177
 msgid "Activate"
 msgstr "Activate"
 
-#: ../classes/base/class-wpfront-base-menu.php:205
+#: ../classes/base/class-wpfront-base-menu.php:199
 msgid "Feedback"
 msgstr "Feedback"
 
-#: ../classes/base/class-wpfront-base-menu.php:222
+#: ../classes/base/class-wpfront-base-menu.php:216
 msgid "WPFront"
 msgstr "WPFront"
 
-#: ../classes/base/class-wpfront-base-menu.php:223
+#: ../classes/base/class-wpfront-base-menu.php:217
 msgid "All Plugins"
 msgstr "All Plugins"
 
@@ -269,24 +265,28 @@ msgstr "Custom CSS"
 msgid "Close Button Color"
 msgstr "Close Button Color"
 
-#: ../classes/class-wpfront-notification-bar.php:60
+#: ../classes/class-wpfront-notification-bar-options.php:76
+msgid "Display for User Roles"
+msgstr "Display for User Roles"
+
+#: ../classes/class-wpfront-notification-bar.php:62
 msgid "WPFront Notification Bar"
 msgstr "WPFront Notification Bar"
 
-#: ../classes/class-wpfront-notification-bar.php:60
+#: ../classes/class-wpfront-notification-bar.php:62
 msgid "Notification Bar"
 msgstr "Notification Bar"
 
-#: ../classes/class-wpfront-notification-bar.php:164
-#: ../classes/class-wpfront-notification-bar.php:168
+#: ../classes/class-wpfront-notification-bar.php:169
+#: ../classes/class-wpfront-notification-bar.php:173
 msgid "[Page]"
 msgstr "[Page]"
 
-#: ../classes/class-wpfront-notification-bar.php:164
+#: ../classes/class-wpfront-notification-bar.php:169
 msgid "Home"
 msgstr "Home"
 
-#: ../classes/class-wpfront-notification-bar.php:173
+#: ../classes/class-wpfront-notification-bar.php:178
 msgid "[Post]"
 msgstr "[Post]"
 
@@ -403,31 +403,55 @@ msgstr "Include in following pages"
 msgid "Exclude in following pages"
 msgstr "Exclude in following pages"
 
-#: ../templates/options-template.php:264
+#: ../templates/options-template.php:269
+msgid "All users."
+msgstr "All users."
+
+#: ../templates/options-template.php:274
+msgid "All logged in users."
+msgstr "All logged in users."
+
+#: ../templates/options-template.php:279
+msgid "Guest users. [Non-logged in users]"
+msgstr "Guest users. [Non-logged in users]"
+
+#: ../templates/options-template.php:284
+msgid "For following user roles"
+msgstr "For following user roles"
+
+#: ../templates/options-template.php:301
+msgid "[No Role]"
+msgstr "[No Role]"
+
+#: ../templates/options-template.php:305
+msgid "[Guest]"
+msgstr "[Guest]"
+
+#: ../templates/options-template.php:312
 msgid "Color"
 msgstr "Color"
 
-#: ../templates/options-template.php:268
+#: ../templates/options-template.php:316
 msgid "Bar Color"
 msgstr "Bar Color"
 
-#: ../templates/options-template.php:279 ../templates/options-template.php:304
+#: ../templates/options-template.php:327 ../templates/options-template.php:352
 msgid "[Select two different colors to create a gradient.]"
 msgstr "[Select two different colors to create a gradient.]"
 
-#: ../templates/options-template.php:293
+#: ../templates/options-template.php:341
 msgid "Button Color"
 msgstr "Button Color"
 
-#: ../templates/options-template.php:342
+#: ../templates/options-template.php:390
 msgid "[Normal, Hover, X]"
 msgstr "[Normal, Hover, X]"
 
-#: ../templates/options-template.php:347
+#: ../templates/options-template.php:395
 msgid "CSS"
 msgstr "CSS"
 
-#: ../templates/options-template.php:363
+#: ../templates/options-template.php:411
 msgid "Plugin Ideas"
 msgstr "Plugin Ideas"
 

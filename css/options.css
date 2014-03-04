@@ -38,7 +38,7 @@
     vertical-align: middle;
 }
 
-#wpfront-notification-bar-options table.form-table div.pages-selection
+#wpfront-notification-bar-options table.form-table div.pages-selection, #wpfront-notification-bar-options table.form-table div.roles-selection
 {
     width: 70%;
     height: 150px;
@@ -52,7 +52,7 @@
     border-radius: 4px;
 }
 
-#wpfront-notification-bar-options table.form-table div.page-div
+#wpfront-notification-bar-options table.form-table div.page-div, #wpfront-notification-bar-options table.form-table div.role-div
 {
     float: left;
     width: 250px;

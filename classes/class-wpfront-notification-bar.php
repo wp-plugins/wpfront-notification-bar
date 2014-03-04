@@ -36,13 +36,15 @@ if (!class_exists('WPFront_Notification_Bar')) {
     class WPFront_Notification_Bar extends WPFront_Base {
 
         //Constants
-        const VERSION = '1.2.1';
+        const VERSION = '1.3';
         const OPTIONS_GROUP_NAME = 'wpfront-notification-bar-options-group';
         const OPTION_NAME = 'wpfront-notification-bar-options';
         const PLUGIN_SLUG = 'wpfront-notification-bar';
-        
         //cookie names
         const COOKIE_LANDINGPAGE = 'wpfront-notification-bar-landingpage';
+        //role consts
+        const ROLE_NOROLE = 'wpfront-notification-bar-role-_norole_';
+        const ROLE_GUEST = 'wpfront-notification-bar-role-_guest_';
 
         //Variables
         protected $options;
@@ -51,12 +53,12 @@ if (!class_exists('WPFront_Notification_Bar')) {
 
         function __construct() {
             parent::__construct(__FILE__, self::PLUGIN_SLUG);
-            
+
             $this->markupLoaded = FALSE;
 
             add_action('wp_footer', array(&$this, 'write_markup'));
             add_action('shutdown', array(&$this, 'write_markup'));
-            
+
             $this->add_menu($this->__('WPFront Notification Bar'), $this->__('Notification Bar'));
         }
 
@@ -101,6 +103,9 @@ if (!class_exists('WPFront_Notification_Bar')) {
 
             $jsRoot = $this->pluginURLRoot . 'jquery-plugins/colorpicker/js/';
             wp_enqueue_script('jquery.eyecon.colorpicker', $jsRoot . 'colorpicker.js', array('jquery'), self::VERSION);
+
+            $jsRoot = $this->pluginURLRoot . 'jquery-plugins/';
+            wp_enqueue_script('json2', $jsRoot . 'json2.min.js', array('jquery'), self::VERSION);
 
 //            $jsRoot = $this->pluginURLRoot . 'js/';
 //            wp_enqueue_script('wpfront-notification-bar-options', $jsRoot . 'options.js', array(), self::VERSION);
@@ -181,10 +186,55 @@ if (!class_exists('WPFront_Notification_Bar')) {
             return $objects;
         }
 
-        protected function filter_page() {
+        protected function get_role_objects() {
+            $objects = array();
+            global $wp_roles;
+
+            $roles = $wp_roles->role_names;
+            foreach ($roles as $role_name => $role_display_name) {
+                $objects[$role_name] = $role_display_name;
+            }
+
+            return $objects;
+        }
+
+        protected function filter() {
             if (is_admin())
                 return TRUE;
-            
+
+            switch ($this->options->display_roles()) {
+                case 1:
+                    break;
+                case 2:
+                    if (!is_user_logged_in())
+                        return FALSE;
+                    break;
+                case 3:
+                    if (is_user_logged_in())
+                        return FALSE;
+                    break;
+                case 4:
+                    global $current_user;
+                    if (empty($current_user->roles)) {
+                        $role = self::ROLE_GUEST;
+                        if (is_user_logged_in())
+                            $role = self::ROLE_NOROLE;
+                        if (!in_array($role, $this->options->include_roles()))
+                            return FALSE;
+                    } else {
+                        $display = FALSE;
+                        foreach ($current_user->roles as $role) {
+                            if (in_array($role, $this->options->include_roles())) {
+                                $display = TRUE;
+                                break;
+                            }
+                        }
+                        if (!$display)
+                            return FALSE;
+                    }
+                    break;
+            }
+
             switch ($this->options->display_pages()) {
                 case 1:
                     return TRUE;
@@ -233,11 +283,12 @@ if (!class_exists('WPFront_Notification_Bar')) {
 
         protected function enabled() {
             if ($this->options->enabled()) {
-                return $this->filter_page();
+                return $this->filter();
             }
 
             return FALSE;
         }
+
     }
 
 }

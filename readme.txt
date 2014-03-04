@@ -4,7 +4,7 @@ Donate link: http://wpfront.com/donate/
 Tags: notification bar, wordpress notification bar, top bar, bottom bar, notification, bar, quick bar, fixed bar, sticky bar, message bar, message, floating bar, notice, sticky header, special offer, discount offer, offer, important, attention bar, highlight bar, popup bar, hellobar, heads up, heads up bar, headsup, headsupbar, popup, Toolbar
 Requires at least: 3.0
 Tested up to: 3.8.1
-Stable tag: 1.2.1
+Stable tag: 1.3
 License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -25,6 +25,7 @@ Want to display a notification about a promotion or a news? WPFront Notification
 * **Colors** are fully **customizable**.
 * Display a **Reopen Button**.
 * **Select the pages/posts** you want to display the notification.
+* **Select the user roles** you want to display the notification.
 
 Visit [WPFront Notification Bar Ideas](http://wpfront.com/notification-bar-plugin-ideas/) page for some useful functionalities.
 
@@ -58,6 +59,10 @@ No one has asked anything yet.
 
 == Changelog ==
 
+= 1.3 =
+* User roles filter added.
+* New menu structure.
+
 = 1.2.1 =
 * Fixed an issue with mod_security.
 * German language added. Thanks to Anders Lind.
@@ -81,6 +86,9 @@ No one has asked anything yet.
 * Initial release
 
 == Upgrade Notice ==
+
+= 1.3 =
+* Now you can filter by user roles.
 
 = 1.2.1 =
 * Fixed an issue with mod_security on "cookie" rule.
