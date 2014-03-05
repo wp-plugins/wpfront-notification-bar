@@ -44,11 +44,13 @@ Localization Contributors:
 1. Download the .zip package
 1. Unzip into the subdirectory 'wpfront-notification-bar' within your local WordPress plugins directory
 1. Refresh plugin page and activate plugin
-1. Configure plugin using *settings* link under plugin name or by going to Settings/Notification Bar
+1. Configure plugin using *settings* link under plugin name or by going to WPFront/Notification Bar
 
 == Frequently Asked Questions ==
 
-No one has asked anything yet.  
+= I don’t want the plugin to be displayed on “wp-admin”, what should I do? =
+
+Notification bar doesn’t display on the wp-admin pages, except on the notification bar settings page. On the settings page it acts as a preview so that you can see the changes you make.
 
 == Screenshots ==
  
