@@ -1,4 +1,4 @@
-=== WPFront Notification Bar ===
+Ôªø=== WPFront Notification Bar ===
 Contributors: syammohanm
 Donate link: http://wpfront.com/donate/
 Tags: notification bar, wordpress notification bar, top bar, bottom bar, notification, bar, quick bar, fixed bar, sticky bar, message bar, message, floating bar, notice, sticky header, special offer, discount offer, offer, important, attention bar, highlight bar, popup bar, hellobar, heads up, heads up bar, headsup, headsupbar, popup, Toolbar
@@ -48,9 +48,13 @@ Localization Contributors:
 
 == Frequently Asked Questions ==
 
-= I donít want the plugin to be displayed on ìwp-adminî, what should I do? =
+= I don‚Äôt want the plugin to be displayed on ‚Äúwp-admin‚Äù, what should I do? =
 
-Notification bar doesnít display on the wp-admin pages, except on the notification bar settings page. On the settings page it acts as a preview so that you can see the changes you make.
+Notification bar doesn‚Äôt display on the wp-admin pages, except on the notification bar settings page. On the settings page it acts as a preview so that you can see the changes you make.
+
+= How do I stop the bar from displaying for logged in users? =
+
+The new version(1.3) allows you to filter the bar based on user roles. In this case you need to select the ‚ÄúGuest users‚Äù option.
 
 == Screenshots ==
  
