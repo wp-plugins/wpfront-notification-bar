@@ -48,7 +48,9 @@ Localization Contributors:
 
 == Frequently Asked Questions ==
 
-No one has asked anything yet.  
+1. **I don’t want the plugin to be displayed on “wp-admin”, what should I do?**
+   Notification bar doesn’t display on the wp-admin pages, except on the notification bar settings page. 
+   On the settings page it acts as a preview so that you can see the changes you make.
 
 == Screenshots ==
  
