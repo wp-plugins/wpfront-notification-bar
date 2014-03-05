@@ -52,6 +52,10 @@ Localization Contributors:
 
 Notification bar doesn’t display on the wp-admin pages, except on the notification bar settings page. On the settings page it acts as a preview so that you can see the changes you make.
 
+= How do I stop the bar from displaying for logged in users? =
+
+The new version(1.3) allows you to filter the bar based on user roles. In this case you need to select the “Guest users” option.
+
 == Screenshots ==
  
 1. Bar on top.
