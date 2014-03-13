@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: WPFront Notification Bar\n"
-"POT-Creation-Date: 2014-03-03 17:59-0700\n"
-"PO-Revision-Date: 2014-03-03 17:59-0700\n"
+"POT-Creation-Date: 2014-03-12 17:05-0700\n"
+"PO-Revision-Date: 2014-03-12 17:05-0700\n"
 "Last-Translator: \n"
 "Language-Team: WPFront <contact@wpfront.com>\n"
 "Language: en\n"
@@ -143,7 +143,11 @@ msgstr "Write Review"
 msgid "Contact Me (syam@wpfront.com)"
 msgstr "Contact Me (syam@wpfront.com)"
 
-#: ../classes/base/class-wpfront-base.php:195
+#: ../classes/base/class-wpfront-base.php:180
+msgid "Buy me a Beer or Coffee"
+msgstr "Buy me a Beer or Coffee"
+
+#: ../classes/base/class-wpfront-base.php:197
 msgid "Save Changes"
 msgstr "Save Changes"
 
@@ -269,6 +273,22 @@ msgstr "Close Button Color"
 msgid "Display for User Roles"
 msgstr "Display for User Roles"
 
+#: ../classes/class-wpfront-notification-bar-options.php:78
+msgid "Display on Scroll"
+msgstr "Display on Scroll"
+
+#: ../classes/class-wpfront-notification-bar-options.php:79
+msgid "Scroll Offset"
+msgstr "Scroll Offset"
+
+#: ../classes/class-wpfront-notification-bar-options.php:80
+msgid "Start Date"
+msgstr "Start Date"
+
+#: ../classes/class-wpfront-notification-bar-options.php:81
+msgid "End Date"
+msgstr "End Date"
+
 #: ../classes/class-wpfront-notification-bar.php:62
 msgid "WPFront Notification Bar"
 msgstr "WPFront Notification Bar"
@@ -277,16 +297,16 @@ msgstr "WPFront Notification Bar"
 msgid "Notification Bar"
 msgstr "Notification Bar"
 
-#: ../classes/class-wpfront-notification-bar.php:169
-#: ../classes/class-wpfront-notification-bar.php:173
+#: ../classes/class-wpfront-notification-bar.php:176
+#: ../classes/class-wpfront-notification-bar.php:180
 msgid "[Page]"
 msgstr "[Page]"
 
-#: ../classes/class-wpfront-notification-bar.php:169
+#: ../classes/class-wpfront-notification-bar.php:176
 msgid "Home"
 msgstr "Home"
 
-#: ../classes/class-wpfront-notification-bar.php:178
+#: ../classes/class-wpfront-notification-bar.php:185
 msgid "[Post]"
 msgstr "[Post]"
 
@@ -310,15 +330,24 @@ msgstr "Bottom"
 msgid "[Sticky Bar, bar will stay at position regardless of scrolling.]"
 msgstr "[Sticky Bar, bar will stay at position regardless of scrolling.]"
 
-#: ../templates/options-template.php:68 ../templates/options-template.php:76
+#: ../templates/options-template.php:68
+msgid "[Displays the bar on window scroll.]"
+msgstr "[Displays the bar on window scroll.]"
+
+#: ../templates/options-template.php:76 ../templates/options-template.php:84
+#: ../templates/options-template.php:92
 msgid "px"
 msgstr "px"
 
-#: ../templates/options-template.php:68
+#: ../templates/options-template.php:76
+msgid "Number of pixels to be scrolled before the bar appears."
+msgstr "Number of pixels to be scrolled before the bar appears."
+
+#: ../templates/options-template.php:84
 msgid "Set 0px to auto fit contents."
 msgstr "Set 0px to auto fit contents."
 
-#: ../templates/options-template.php:76
+#: ../templates/options-template.php:92
 msgid ""
 "(Top bar only) If you find the bar overlapping, try increasing this value. "
 "(eg. WordPress 3.8 Twenty Fourteen theme, set 48px)"
@@ -326,40 +355,48 @@ msgstr ""
 "(Top bar only) If you find the bar overlapping, try increasing this value. "
 "(eg. WordPress 3.8 Twenty Fourteen theme, set 48px)"
 
-#: ../templates/options-template.php:84 ../templates/options-template.php:92
-#: ../templates/options-template.php:108
+#: ../templates/options-template.php:100 ../templates/options-template.php:108
+#: ../templates/options-template.php:124
 msgid "second(s)"
 msgstr "second(s)"
 
-#: ../templates/options-template.php:84
-msgid "Set 0 second(s) to display immediately."
-msgstr "Set 0 second(s) to display immediately."
+#: ../templates/options-template.php:100
+msgid ""
+"Set 0 second(s) to display immediately. Do not work in \"Display on Scroll\" "
+"mode."
+msgstr ""
+"Set 0 second(s) to display immediately. Do not work in \"Display on Scroll\" "
+"mode."
 
-#: ../templates/options-template.php:92
+#: ../templates/options-template.php:108
 msgid "Set 0 second(s) for no animation."
 msgstr "Set 0 second(s) for no animation."
 
-#: ../templates/options-template.php:100
+#: ../templates/options-template.php:116
 msgid "[Displays a close button at the top right corner of the bar.]"
 msgstr "[Displays a close button at the top right corner of the bar.]"
 
-#: ../templates/options-template.php:108
-msgid "Set 0 second(s) to disable auto close."
-msgstr "Set 0 second(s) to disable auto close."
-
 #: ../templates/options-template.php:124
+msgid ""
+"Set 0 second(s) to disable auto close. Do not work in \"Display on Scroll\" "
+"mode."
+msgstr ""
+"Set 0 second(s) to disable auto close. Do not work in \"Display on Scroll\" "
+"mode."
+
+#: ../templates/options-template.php:140
 msgid "A reopen button will be displayed after the bar is closed."
 msgstr "A reopen button will be displayed after the bar is closed."
 
-#: ../templates/options-template.php:132
+#: ../templates/options-template.php:148
 msgid "Once closed, bar will display closed on other pages."
 msgstr "Once closed, bar will display closed on other pages."
 
-#: ../templates/options-template.php:140
+#: ../templates/options-template.php:156
 msgid "day(s)"
 msgstr "day(s)"
 
-#: ../templates/options-template.php:140
+#: ../templates/options-template.php:156
 msgid ""
 "Bar will be kept closed for the number of days specified from last closed "
 "date."
@@ -367,91 +404,95 @@ msgstr ""
 "Bar will be kept closed for the number of days specified from last closed "
 "date."
 
-#: ../templates/options-template.php:145
+#: ../templates/options-template.php:161
 msgid "Content"
 msgstr "Content"
 
-#: ../templates/options-template.php:154
+#: ../templates/options-template.php:170
 msgid "[HTML tags are allowed. e.g. Add <br /> for break.]"
 msgstr "[HTML tags are allowed. e.g. Add <br /> for break.]"
 
-#: ../templates/options-template.php:162
+#: ../templates/options-template.php:178
 msgid "[Displays a button next to the message.]"
 msgstr "[Displays a button next to the message.]"
 
-#: ../templates/options-template.php:207
+#: ../templates/options-template.php:223
 msgid "Filter"
 msgstr "Filter"
 
-#: ../templates/options-template.php:216
+#: ../templates/options-template.php:230 ../templates/options-template.php:238
+msgid "[YYYY-MM-DD]"
+msgstr "[YYYY-MM-DD]"
+
+#: ../templates/options-template.php:248
 msgid "All pages."
 msgstr "All pages."
 
-#: ../templates/options-template.php:221
+#: ../templates/options-template.php:253
 msgid "Only in landing page."
 msgstr "Only in landing page."
 
-#: ../templates/options-template.php:221
+#: ../templates/options-template.php:253
 msgid "[The first page they visit on your website.]"
 msgstr "[The first page they visit on your website.]"
 
-#: ../templates/options-template.php:226
+#: ../templates/options-template.php:258
 msgid "Include in following pages"
 msgstr "Include in following pages"
 
-#: ../templates/options-template.php:244
+#: ../templates/options-template.php:278
 msgid "Exclude in following pages"
 msgstr "Exclude in following pages"
 
-#: ../templates/options-template.php:269
+#: ../templates/options-template.php:305
 msgid "All users."
 msgstr "All users."
 
-#: ../templates/options-template.php:274
+#: ../templates/options-template.php:310
 msgid "All logged in users."
 msgstr "All logged in users."
 
-#: ../templates/options-template.php:279
+#: ../templates/options-template.php:315
 msgid "Guest users. [Non-logged in users]"
 msgstr "Guest users. [Non-logged in users]"
 
-#: ../templates/options-template.php:284
+#: ../templates/options-template.php:320
 msgid "For following user roles"
 msgstr "For following user roles"
 
-#: ../templates/options-template.php:301
+#: ../templates/options-template.php:340
 msgid "[No Role]"
 msgstr "[No Role]"
 
-#: ../templates/options-template.php:305
+#: ../templates/options-template.php:346
 msgid "[Guest]"
 msgstr "[Guest]"
 
-#: ../templates/options-template.php:312
+#: ../templates/options-template.php:354
 msgid "Color"
 msgstr "Color"
 
-#: ../templates/options-template.php:316
+#: ../templates/options-template.php:358
 msgid "Bar Color"
 msgstr "Bar Color"
 
-#: ../templates/options-template.php:327 ../templates/options-template.php:352
+#: ../templates/options-template.php:369 ../templates/options-template.php:394
 msgid "[Select two different colors to create a gradient.]"
 msgstr "[Select two different colors to create a gradient.]"
 
-#: ../templates/options-template.php:341
+#: ../templates/options-template.php:383
 msgid "Button Color"
 msgstr "Button Color"
 
-#: ../templates/options-template.php:390
+#: ../templates/options-template.php:432
 msgid "[Normal, Hover, X]"
 msgstr "[Normal, Hover, X]"
 
-#: ../templates/options-template.php:395
+#: ../templates/options-template.php:437
 msgid "CSS"
 msgstr "CSS"
 
-#: ../templates/options-template.php:411
+#: ../templates/options-template.php:453
 msgid "Plugin Ideas"
 msgstr "Plugin Ideas"
 

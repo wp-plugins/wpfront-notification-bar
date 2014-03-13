@@ -75,6 +75,10 @@ if (!class_exists('WPFront_Notification_Bar_Options')) {
             $this->addOption('close_button_color_x', 'string', '#000000', array($this, 'validate_color'));
             $this->addOption('display_roles', 'int', '1', array($this, 'validate_display_roles'))->__('Display for User Roles');
             $this->addOption('include_roles', 'string', array(), array($this, 'validate_include_roles'));
+            $this->addOption('display_scroll', 'bit', false)->__('Display on Scroll');
+            $this->addOption('display_scroll_offset', 'int', '100', array($this, 'validate_zero_positive'))->__('Scroll Offset');
+            $this->addOption('start_date', 'string', '', array($this, 'validate_date_range'))->__('Start Date');
+            $this->addOption('end_date', 'string', '', array($this, 'validate_date_range'))->__('End Date');
         }
 
         //validation function
@@ -127,9 +131,20 @@ if (!class_exists('WPFront_Notification_Bar_Options')) {
 
         protected function validate_include_roles($arg) {
             $obj = json_decode($arg);
-            if(!is_array($obj))
+            if (!is_array($obj))
                 return array();
             return $obj;
+        }
+        
+        protected function validate_date_range($arg) {
+            if(trim($arg) == '')
+                return NULL;
+            
+            if (($timestamp = strtotime($arg)) === false) {
+                return NULL;
+            }
+            
+            return $timestamp;
         }
 
     }

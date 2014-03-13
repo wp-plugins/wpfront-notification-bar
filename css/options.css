@@ -12,6 +12,11 @@
     width: 40px;
 }
 
+#wpfront-notification-bar-options  input.date
+{
+    width: 100px;
+}
+
 #wpfront-notification-bar-options textArea 
 {
     width: 70%;

@@ -54,12 +54,22 @@
 
         //function to set bar height based on options
         var closed = false;
+        var user_closed = false;
         function setHeight(height, callback, userclosed) {
             callback = callback || $.noop;
+
+            if (userclosed)
+                user_closed = true;
+
             if (height == 0) {
                 if (closed)
                     return;
                 closed = true;
+            }
+            else {
+                if (!closed)
+                    return;
+                closed = false;
             }
 
             var fn = callback;
@@ -85,9 +95,9 @@
 
             //set animation
             if (data.animate_delay > 0) {
-                bar.animate({"height": height + "px"}, data.animate_delay * 1000, "swing", callback);
+                bar.stop().animate({"height": height + "px"}, data.animate_delay * 1000, "swing", callback);
                 if (data.fixed_position)
-                    spacer.animate({"height": height + "px"}, data.animate_delay * 1000);
+                    spacer.stop().animate({"height": height + "px"}, data.animate_delay * 1000);
             }
             else {
                 bar.height(height);
@@ -124,15 +134,34 @@
             }
         }
 
-        //set open after seconds and auto close seconds.
-        setTimeout(function() {
-            setHeight(height, function() {
-                if (data.auto_close_after > 0) {
-                    setTimeout(function() {
-                        setHeight(0, null, true);
-                    }, data.auto_close_after * 1000);
+        closed = true;
+
+        if (data.display_scroll) {
+            setHeight(0);
+
+            $(window).scroll(function() {
+                if (user_closed)
+                    return;
+
+                if ($(this).scrollTop() > data.display_scroll_offset) {
+                    setHeight(height);
+                }
+                else {
+                    setHeight(0);
                 }
             });
-        }, data.display_after * 1000);
+        }
+        else {
+            //set open after seconds and auto close seconds.
+            setTimeout(function() {
+                setHeight(height, function() {
+                    if (data.auto_close_after > 0) {
+                        setTimeout(function() {
+                            setHeight(0, null, true);
+                        }, data.auto_close_after * 1000);
+                    }
+                });
+            }, data.display_after * 1000);
+        }
     };
 })();

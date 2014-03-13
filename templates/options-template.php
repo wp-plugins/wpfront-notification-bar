@@ -62,6 +62,22 @@
     </tr>
     <tr>
         <th scope="row">
+            <?php echo $this->options->display_scroll_label(); ?>
+        </th>
+        <td>
+            <input type="checkbox" name="<?php echo $this->options->display_scroll_name(); ?>" <?php echo $this->options->display_scroll() ? 'checked' : ''; ?> />&#160;<span class="description"><?php echo $this->__('[Displays the bar on window scroll.]'); ?></span>
+        </td>
+    </tr>
+    <tr>
+        <th scope="row">
+            <?php echo $this->options->display_scroll_offset_label(); ?>
+        </th>
+        <td>
+            <input class="seconds" name="<?php echo $this->options->display_scroll_offset_name(); ?>" value="<?php echo $this->options->display_scroll_offset(); ?>" />&#160;<?php echo $this->__('px'); ?>&#160;<span class="description">[<?php echo $this->__('Number of pixels to be scrolled before the bar appears.'); ?>]</span>
+        </td>
+    </tr>
+    <tr>
+        <th scope="row">
             <?php echo $this->options->height_label(); ?>
         </th>
         <td>
@@ -81,7 +97,7 @@
             <?php echo $this->options->display_after_label(); ?>
         </th>
         <td>
-            <input class="seconds" name="<?php echo $this->options->display_after_name(); ?>" value="<?php echo $this->options->display_after(); ?>" />&#160;<?php echo $this->__('second(s)'); ?>&#160;<span class="description">[<?php echo $this->__('Set 0 second(s) to display immediately.'); ?>]</span>
+            <input class="seconds" name="<?php echo $this->options->display_after_name(); ?>" value="<?php echo $this->options->display_after(); ?>" />&#160;<?php echo $this->__('second(s)'); ?>&#160;<span class="description">[<?php echo $this->__('Set 0 second(s) to display immediately. Do not work in "Display on Scroll" mode.'); ?>]</span>
         </td>
     </tr>
     <tr>
@@ -105,7 +121,7 @@
             <?php echo $this->options->auto_close_after_label(); ?>
         </th>
         <td>
-            <input class="seconds" name="<?php echo $this->options->auto_close_after_name(); ?>" value="<?php echo $this->options->auto_close_after(); ?>" />&#160;<?php echo $this->__('second(s)'); ?>&#160;<span class="description">[<?php echo $this->__('Set 0 second(s) to disable auto close.'); ?>]</span>
+            <input class="seconds" name="<?php echo $this->options->auto_close_after_name(); ?>" value="<?php echo $this->options->auto_close_after(); ?>" />&#160;<?php echo $this->__('second(s)'); ?>&#160;<span class="description">[<?php echo $this->__('Set 0 second(s) to disable auto close. Do not work in "Display on Scroll" mode.'); ?>]</span>
         </td>
     </tr>
     <tr>
@@ -206,6 +222,22 @@
 
 <h3><?php echo $this->__('Filter'); ?></h3>
 <table class="form-table">
+    <tr>
+        <th scope="row">
+            <?php echo $this->options->start_date_label(); ?>
+        </th>
+        <td>
+            <input class="date" name="<?php echo $this->options->start_date_name(); ?>" value="<?php echo $this->options->start_date() == NULL ? '' : date('Y-m-d', $this->options->start_date()); ?>" />&#160;<span class="description"><?php echo $this->__('[YYYY-MM-DD]'); ?></span>
+        </td>
+    </tr>
+    <tr>
+        <th scope="row">
+            <?php echo $this->options->end_date_label(); ?>
+        </th>
+        <td>
+            <input class="date" name="<?php echo $this->options->end_date_name(); ?>" value="<?php echo $this->options->end_date() == NULL ? '' : date('Y-m-d', $this->options->end_date()); ?>" />&#160;<span class="description"><?php echo $this->__('[YYYY-MM-DD]'); ?></span>
+        </td>
+    </tr>
     <tr>
         <th scope="row">
             <?php echo $this->options->display_pages_label(); ?>
@@ -461,6 +493,10 @@
                 values.push($(e).val());
             });
             div.children(":first").val(JSON.stringify(values));
+        });
+        
+        $('#wpfront-notification-bar-options input.date').datepicker({
+            'dateFormat' : 'yy-mm-dd'
         });
 
     })(jQuery);

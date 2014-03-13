@@ -36,7 +36,7 @@ if (!class_exists('WPFront_Notification_Bar')) {
     class WPFront_Notification_Bar extends WPFront_Base {
 
         //Constants
-        const VERSION = '1.3';
+        const VERSION = '1.4';
         const OPTIONS_GROUP_NAME = 'wpfront-notification-bar-options-group';
         const OPTION_NAME = 'wpfront-notification-bar-options';
         const PLUGIN_SLUG = 'wpfront-notification-bar';
@@ -101,8 +101,10 @@ if (!class_exists('WPFront_Notification_Bar')) {
         public function enqueue_options_scripts() {
             $this->enqueue_scripts();
 
+            wp_enqueue_script('jquery-ui-datepicker', 'https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/jquery-ui.min.js', array('jquery'), '1.8.16');
+
             $jsRoot = $this->pluginURLRoot . 'jquery-plugins/colorpicker/js/';
-            wp_enqueue_script('jquery.eyecon.colorpicker', $jsRoot . 'colorpicker.js', array('jquery'), self::VERSION);
+            wp_enqueue_script('jquery.eyecon.colorpicker', $jsRoot . 'colorpicker.js', array('jquery', 'jquery-ui-datepicker'), self::VERSION);
 
             $jsRoot = $this->pluginURLRoot . 'jquery-plugins/';
             wp_enqueue_script('json2', $jsRoot . 'json2.min.js', array('jquery'), self::VERSION);
@@ -114,6 +116,9 @@ if (!class_exists('WPFront_Notification_Bar')) {
         //options page styles
         public function enqueue_options_styles() {
             $this->enqueue_styles();
+            
+            $styleRoot = $this->pluginURLRoot . 'jquery-plugins/jquery-ui/smoothness/';
+            wp_enqueue_style('jquery.ui.smoothness.datepicker', $styleRoot . 'jquery-ui-1.10.4.custom.min.css', array(), self::VERSION);
 
             $styleRoot = $this->pluginURLRoot . 'jquery-plugins/colorpicker/css/';
             wp_enqueue_style('jquery.eyecon.colorpicker.colorpicker', $styleRoot . 'colorpicker.css', array(), self::VERSION);
@@ -156,6 +161,8 @@ if (!class_exists('WPFront_Notification_Bar')) {
                     'keep_closed' => $this->options->keep_closed(),
                     'keep_closed_for' => $this->options->keep_closed_for(),
                     'position_offset' => $this->options->position_offset(),
+                    'display_scroll' => $this->options->display_scroll(),
+                    'display_scroll_offset' => $this->options->display_scroll_offset(),
                 )) . ');';
                 echo '</script>';
             }
@@ -201,6 +208,23 @@ if (!class_exists('WPFront_Notification_Bar')) {
         protected function filter() {
             if (is_admin())
                 return TRUE;
+
+            $today = current_time('mysql');
+            $today = strtotime($today);
+            $today = date('Y-m-d', $today);
+            $today = strtotime($today);
+
+            $start_date = $this->options->start_date();
+            if ($start_date != NULL) {
+                if ($start_date > $today)
+                    return FALSE;
+            }
+
+            $end_date = $this->options->end_date();
+            if ($end_date != NULL) {
+                if ($end_date < $today)
+                    return FALSE;
+            }
 
             switch ($this->options->display_roles()) {
                 case 1:
