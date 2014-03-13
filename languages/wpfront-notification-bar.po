@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: WPFront Notification Bar\n"
-"POT-Creation-Date: 2014-03-12 16:29-0700\n"
-"PO-Revision-Date: 2014-03-12 16:30-0700\n"
+"POT-Creation-Date: 2014-03-12 17:05-0700\n"
+"PO-Revision-Date: 2014-03-12 17:05-0700\n"
 "Last-Translator: \n"
 "Language-Team: WPFront <contact@wpfront.com>\n"
 "Language: en\n"
@@ -361,8 +361,12 @@ msgid "second(s)"
 msgstr "second(s)"
 
 #: ../templates/options-template.php:100
-msgid "Set 0 second(s) to display immediately."
-msgstr "Set 0 second(s) to display immediately."
+msgid ""
+"Set 0 second(s) to display immediately. Do not work in \"Display on Scroll\" "
+"mode."
+msgstr ""
+"Set 0 second(s) to display immediately. Do not work in \"Display on Scroll\" "
+"mode."
 
 #: ../templates/options-template.php:108
 msgid "Set 0 second(s) for no animation."
@@ -373,8 +377,12 @@ msgid "[Displays a close button at the top right corner of the bar.]"
 msgstr "[Displays a close button at the top right corner of the bar.]"
 
 #: ../templates/options-template.php:124
-msgid "Set 0 second(s) to disable auto close."
-msgstr "Set 0 second(s) to disable auto close."
+msgid ""
+"Set 0 second(s) to disable auto close. Do not work in \"Display on Scroll\" "
+"mode."
+msgstr ""
+"Set 0 second(s) to disable auto close. Do not work in \"Display on Scroll\" "
+"mode."
 
 #: ../templates/options-template.php:140
 msgid "A reopen button will be displayed after the bar is closed."

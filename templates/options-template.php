@@ -97,7 +97,7 @@
             <?php echo $this->options->display_after_label(); ?>
         </th>
         <td>
-            <input class="seconds" name="<?php echo $this->options->display_after_name(); ?>" value="<?php echo $this->options->display_after(); ?>" />&#160;<?php echo $this->__('second(s)'); ?>&#160;<span class="description">[<?php echo $this->__('Set 0 second(s) to display immediately.'); ?>]</span>
+            <input class="seconds" name="<?php echo $this->options->display_after_name(); ?>" value="<?php echo $this->options->display_after(); ?>" />&#160;<?php echo $this->__('second(s)'); ?>&#160;<span class="description">[<?php echo $this->__('Set 0 second(s) to display immediately. Do not work in "Display on Scroll" mode.'); ?>]</span>
         </td>
     </tr>
     <tr>
@@ -121,7 +121,7 @@
             <?php echo $this->options->auto_close_after_label(); ?>
         </th>
         <td>
-            <input class="seconds" name="<?php echo $this->options->auto_close_after_name(); ?>" value="<?php echo $this->options->auto_close_after(); ?>" />&#160;<?php echo $this->__('second(s)'); ?>&#160;<span class="description">[<?php echo $this->__('Set 0 second(s) to disable auto close.'); ?>]</span>
+            <input class="seconds" name="<?php echo $this->options->auto_close_after_name(); ?>" value="<?php echo $this->options->auto_close_after(); ?>" />&#160;<?php echo $this->__('second(s)'); ?>&#160;<span class="description">[<?php echo $this->__('Set 0 second(s) to disable auto close. Do not work in "Display on Scroll" mode.'); ?>]</span>
         </td>
     </tr>
     <tr>
