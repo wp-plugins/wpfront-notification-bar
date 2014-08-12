@@ -3,8 +3,8 @@ Contributors: syammohanm
 Donate link: http://wpfront.com/donate/
 Tags: notification bar, wordpress notification bar, top bar, bottom bar, notification, bar, quick bar, fixed bar, sticky bar, message bar, message, floating bar, notice, sticky header, special offer, discount offer, offer, important, attention bar, highlight bar, popup bar, hellobar, heads up, heads up bar, headsup, headsupbar, popup, Toolbar
 Requires at least: 3.0
-Tested up to: 3.9
-Stable tag: 1.4
+Tested up to: 3.9.2
+Stable tag: 1.4.1
 License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -35,6 +35,7 @@ Visit [WPFront Notification Bar Settings](http://wpfront.com/notification-bar-pl
 
 Localization Contributors:
 <li>[Anders Lind](http://erding-mallards.de) (German) </li>
+<li>[Botfai Tibor](http://gidano.hu) (Hungarian) </li>
 
 == Installation ==
 
@@ -67,6 +68,10 @@ The new version(1.3) allows you to filter the bar based on user roles. In this c
 
 == Changelog ==
 
+= 1.4.1 =
+* Bug fixes.
+* Hungarian translation.
+
 = 1.4 =
 * Display on Scroll option added.
 * Date filters added.
@@ -98,6 +103,9 @@ The new version(1.3) allows you to filter the bar based on user roles. In this c
 * Initial release
 
 == Upgrade Notice ==
+
+= 1.4.1 =
+* A couple of bug fixes.
 
 = 1.4 =
 * Now you can set it to display on scroll.
