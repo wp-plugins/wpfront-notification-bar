@@ -36,7 +36,7 @@ if (!class_exists('WPFront_Notification_Bar')) {
     class WPFront_Notification_Bar extends WPFront_Base {
 
         //Constants
-        const VERSION = '1.4';
+        const VERSION = '1.4.1';
         const OPTIONS_GROUP_NAME = 'wpfront-notification-bar-options-group';
         const OPTION_NAME = 'wpfront-notification-bar-options';
         const PLUGIN_SLUG = 'wpfront-notification-bar';
@@ -116,7 +116,7 @@ if (!class_exists('WPFront_Notification_Bar')) {
         //options page styles
         public function enqueue_options_styles() {
             $this->enqueue_styles();
-            
+
             $styleRoot = $this->pluginURLRoot . 'jquery-plugins/jquery-ui/smoothness/';
             wp_enqueue_style('jquery.ui.smoothness.datepicker', $styleRoot . 'jquery-ui-1.10.4.custom.min.css', array(), self::VERSION);
 
@@ -284,7 +284,7 @@ if (!class_exists('WPFront_Notification_Bar')) {
                     }
                     if ($this->options->display_pages() == 3) {
                         if ($ID !== FALSE && $type !== FALSE) {
-                            if (strpos($this->options->include_pages(), $type . '.' . $ID) === FALSE)
+                            if ($this->filter_pages_contains($this->options->include_pages(), $type . '.' . $ID) === FALSE)
                                 return FALSE;
                             else
                                 return TRUE;
@@ -293,7 +293,7 @@ if (!class_exists('WPFront_Notification_Bar')) {
                     }
                     if ($this->options->display_pages() == 4) {
                         if ($ID !== FALSE && $type !== FALSE) {
-                            if (strpos($this->options->exclude_pages(), $type . '.' . $ID) === FALSE)
+                            if ($this->filter_pages_contains($this->options->exclude_pages(), $type . '.' . $ID) === FALSE)
                                 return TRUE;
                             else
                                 return FALSE;
@@ -303,6 +303,10 @@ if (!class_exists('WPFront_Notification_Bar')) {
             }
 
             return TRUE;
+        }
+
+        public function filter_pages_contains($list, $key) {
+            return strpos(',' . $list . ',', ',' . $key . ',');
         }
 
         protected function enabled() {
